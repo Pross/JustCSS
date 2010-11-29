@@ -1,0 +1,261 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Text in function
+#: justcss/loop.php:50
+msgid "% Comments"
+msgstr ""
+
+#. Text in function
+#: justcss/comments.php:40
+msgid "&larr; Older Comments"
+msgstr ""
+
+#. Text in function
+#: justcss/image.php:35
+msgid "&larr; Previous"
+msgstr ""
+
+#. Text in function
+#: justcss/loop.php:50
+msgid "1 Comment"
+msgstr ""
+
+#. Text in function
+#: justcss/image.php:88
+msgid "<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback 
+URL for your post\" rel=\"trackback\">Trackback URL</a>."
+msgstr ""
+
+#. Text in function
+#: justcss/loop.php:63
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#. Text in function
+#: justcss/single.php:23
+#: justcss/loop.php:22
+msgid "<span class=\"meta-prep meta-prep-author\">Posted on </span><a href=\"%1$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%2$s\" pubdate>%3$s</time></a> <span 
+class=\"meta-sep\"> by </span> <span class=\"author vcard\"><a class=\"url fn n\" href=\"%4$s\" title=\"%5$s\">%6$s</a></span>"
+msgstr ""
+
+#. Text in function
+#: justcss/image.php:19
+msgid "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class=\"entry-date\"><abbr class=\"published\" title=\"%1$s\">%2$s</abbr></span>  at <a 
+href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%7$s</a>"
+msgstr ""
+
+#. Text in echo
+#: justcss/footer.php:11
+msgid "A Semantic Personal Publishing Platform"
+msgstr ""
+
+#. Text in echo
+#: justcss/sidebar.php:16
+msgid "Archives"
+msgstr ""
+
+#. Text in function
+#: justcss/author.php:12
+msgid "Author Archives: <span class=\"vcard\">%s</span>"
+msgstr ""
+
+#. Text in echo
+#: justcss/archive.php:20
+msgid "Blog Archives"
+msgstr ""
+
+#. Text in echo
+#: justcss/image.php:94
+msgid "Both comments and trackbacks are currently closed."
+msgstr ""
+
+#. Text in function
+#: justcss/category.php:10
+msgid "Category Archives: %s"
+msgstr ""
+
+#. Text in echo
+#: justcss/comments.php:39
+msgid "Comment navigation"
+msgstr ""
+
+#. Text in function
+#: justcss/image.php:90
+msgid "Comments are closed, but you can leave a trackback: <a class=\"trackback-link\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
+msgstr ""
+
+#. Text in echo
+#: justcss/comments.php:51
+msgid "Comments are closed."
+msgstr ""
+
+#. Text in function
+#: justcss/loop.php:37
+#: justcss/loop.php:41
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#. Text in function
+#: justcss/archive.php:14
+msgid "Daily Archives: <span>%s</span>"
+msgstr ""
+
+#. Text in function
+#: justcss/full-width-page.php:23
+#: justcss/page.php:20
+#: justcss/image.php:31
+#: justcss/image.php:96
+#: justcss/single.php:58
+#: justcss/loop.php:51
+msgid "Edit"
+msgstr ""
+
+#. Text in echo
+#: justcss/404.php:16
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching, or one of the links below, can help."
+msgstr ""
+
+#. Text in function
+#: justcss/loop.php:50
+msgid "Leave a comment"
+msgstr ""
+
+#. Text in echo
+#: justcss/header.php:29
+msgid "Main menu"
+msgstr ""
+
+#. Text in echo
+#: justcss/sidebar.php:23
+msgid "Meta"
+msgstr ""
+
+#. Text in function
+#: justcss/archive.php:16
+msgid "Monthly Archives: <span>%s</span>"
+msgstr ""
+
+#. Text in echo
+#: justcss/404.php:23
+msgid "Most Used Categories"
+msgstr ""
+
+#. Text in function
+#: justcss/comments.php:41
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#. Text in function
+#: justcss/loop.php:64
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#. Text in function
+#: justcss/image.php:36
+msgid "Next &rarr;"
+msgstr ""
+
+#. Text in echo
+#: justcss/search.php:19
+msgid "Nothing Found"
+msgstr ""
+
+#. Text in function
+#: justcss/full-width-page.php:22
+#: justcss/page.php:19
+#: justcss/image.php:82
+#: justcss/single.php:38
+#: justcss/loop.php:42
+msgid "Pages:"
+msgstr ""
+
+#. Text in function
+#: justcss/loop.php:19
+msgid "Permalink to %s"
+msgstr ""
+
+#. Text in echo
+#: justcss/single.php:63
+#: justcss/loop.php:62
+msgid "Post navigation"
+msgstr ""
+
+#. Text in echo
+#: justcss/loop.php:47
+msgid "Posted in "
+msgstr ""
+
+#. Text in function
+#: justcss/footer.php:11
+msgid "Proudly powered by %s."
+msgstr ""
+
+#. Text in function
+#: justcss/search.php:12
+msgid "Search Results for: %s"
+msgstr ""
+
+#. Text in echo
+#: justcss/header.php:30
+msgid "Skip to content"
+msgstr ""
+
+#. Text in echo
+#: justcss/search.php:23
+msgid "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
+msgstr ""
+
+#. Text in function
+#: justcss/tag.php:14
+msgid "Tag Archives: %s"
+msgstr ""
+
+#. Text in function
+#: justcss/loop.php:49
+msgid "Tagged "
+msgstr ""
+
+#. Text in function
+#: justcss/single.php:42
+msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr ""
+
+#. Text in function
+#: justcss/single.php:42
+msgid "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr ""
+
+#. Text in echo
+#: justcss/404.php:12
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#. Text in echo
+#: justcss/comments.php:9
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#. Text in echo
+#: justcss/image.php:92
+msgid "Trackbacks are closed, but you can <a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">post a comment</a>."
+msgstr ""
+
+#. Text in function
+#: justcss/404.php:29
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#. Text in function
+#: justcss/single.php:23
+#: justcss/loop.php:22
+msgid "View all posts by %s"
+msgstr ""
+
+#. Text in function
+#: justcss/archive.php:18
+msgid "Yearly Archives: <span>%s</span>"
+msgstr ""
+

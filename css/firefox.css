@@ -1,0 +1,10 @@
+
+
+#access ul ul{-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;-webkit-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);-moz-box-shadow: 0px 3px 3px rgba(0,0,0,0.2);box-shadow: 0px 3px 3px rgba(0,0,0,0.2);}
+
+.nav-next a:hover,.nav-previous a:hover{-webkit-border-radius:3px;-moz-border-radius:3px;}
+.entry-meta a:hover{-webkit-border-radius:3px;-moz-border-radius:3px;}
+.edit-link{-webkit-border-radius:3px;-moz-border-radius:3px;}
+.edit-link a:hover{-webkit-border-radius:3px;-moz-border-radius:3px;}
+.shadow, .attachment img, .attachment-thumbnail, .wp-caption img, .size-thumbnail, .size-full{-moz-box-shadow: 3px 3px 4px #000;-webkit-box-shadow: 3px 3px 4px #000;box-shadow: 3px 3px 4px #000;}
+.wp-caption{-webkit-border-radius:3px;-moz-border-radius:3px}

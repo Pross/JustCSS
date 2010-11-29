@@ -1,0 +1,476 @@
+@import url("html5reset.css");
+#page {
+display:block;
+width:1024px;
+font-family:Arial,Helvetica,Sans-Serif;
+margin:0 auto;
+}
+
+#primary {
+float:left;
+width:100%;
+margin:0 -240px 0 0;
+}
+
+#content {
+margin:0 250px 0 0;
+}
+
+#main .widget-area {
+float:right;
+overflow:hidden;
+width:230px;
+}
+
+#colophon {
+clear:both;
+display:block;
+width:100%;
+padding:1em 0 0;
+}
+
+.full-width #content,.image-attachment #content,.error404 #content {
+margin:0;
+}
+
+.screen-reader-text,.section-heading {
+position:absolute;
+left:-9000em;
+}
+
+.alignleft {
+display:inline;
+float:left;
+}
+
+.alignright {
+display:inline;
+float:right;
+}
+
+.aligncenter {
+clear:both;
+display:block;
+margin-left:auto;
+margin-right:auto;
+}
+
+#site-title {
+font-size:2em;
+font-weight:700;
+float:left;
+font-style:italic;
+margin:0 15px 15px 0;
+}
+
+#site-description {
+font-weight:400;
+font-size:0.7em;
+position:relative;
+float:right;
+margin:0 0 1em;
+}
+
+#access {
+background:#eee;
+display:block;
+float:left;
+width:100%;
+border-radius:15px;
+font-size:1.1em;
+font-weight:700;
+margin:0 auto 1em;
+}
+
+#access ul {
+list-style:none;
+padding-left:0;
+margin:0;
+}
+
+#access li {
+float:left;
+position:relative;
+}
+
+#access a {
+display:block;
+line-height:2em;
+color:#000;
+text-decoration:none;
+padding:0 8px;
+}
+
+#access ul ul {
+box-shadow:0 3px 3px rgba(0,0,0,0.2);
+-moz-box-shadow:0 3px 3px rgba(0,0,0,0.2);
+-webkit-box-shadow:0 3px 3px rgba(0,0,0,0.2);
+display:none;
+float:left;
+position:absolute;
+top:2em;
+left:0;
+z-index:99999;
+border-radius:15px;
+}
+
+#access ul ul ul {
+left:100%;
+top:0;
+}
+
+#access ul ul a {
+background:#333;
+color:#fff;
+line-height:1em;
+width:10em;
+height:auto;
+padding:.5em .5em .5em 0.5em;
+}
+
+#access li:hover > a,#access ul ul :hover > a {
+background:#333;
+color:#fff;
+}
+
+#access ul ul a:hover {
+background:#000;
+}
+
+#content nav {
+display:block;
+overflow:hidden;
+}
+
+#content nav .nav-previous {
+float:left;
+width:50%;
+}
+
+#content nav .nav-next {
+float:right;
+text-align:right;
+width:50%;
+}
+
+#nav-below {
+margin:1em 0 0;
+}
+
+.page-link {
+margin:0 0 1em;
+}
+
+.error404 .widget {
+float:left;
+width:33%;
+}
+
+.error404 .widget_tag_cloud {
+clear:both;
+float:none;
+width:100%;
+}
+
+.post .notice,.error404 #searchform {
+background:#eee;
+display:block;
+padding:1em;
+}
+
+.image-attachment nav {
+float:right;
+margin:0 0 1em;
+}
+
+.image-attachment .entry-content .entry-attachment {
+background:#eee;
+text-align:center;
+margin:0 0 1em;
+padding:1em;
+}
+
+.image-attachment .entry-content .attachment {
+display:block;
+text-align:center;
+margin:0 auto;
+}
+
+a img {
+border:none;
+}
+
+p img {
+margin-bottom:0.5em;
+}
+
+#content img,.widget-area img {
+max-width:100%;
+width:auto;
+height:auto;
+}
+
+img.alignright {
+margin-left:1em;
+}
+
+.wp-caption {
+text-align:center;
+background:#eee;
+border-radius:3px;
+padding:.5em;
+}
+
+.wp-caption img {
+margin:.25em;
+}
+
+.wp-caption .wp-caption-text {
+margin:.5em;
+}
+
+#searchform input#s {
+width:60%;
+}
+
+input[type=text],input#s {
+width:60%;
+margin:0 1em 0 0;
+}
+
+textarea {
+width:80%;
+}
+
+.required {
+color:#c03;
+}
+
+#respond input[type=text] {
+float:left;
+width:60%;
+margin:0 1em 0 0;
+}
+
+#respond textarea {
+float:left;
+width:80%;
+margin:0 1em 1em 0;
+}
+
+#respond .form-allowed-tags {
+clear:both;
+width:80%;
+}
+
+.widget-area {
+border-radius:15px;
+background:#EEE;
+width:280px;
+padding:1em 0 0;
+}
+
+.widget {
+display:block;
+padding:0 10px 10px;
+}
+
+.widget-area .widget_search {
+overflow:hidden;
+}
+
+#site-title a {
+font-size:2em;
+text-shadow:1px 1px 2px #999;
+color:#000;
+text-decoration:none;
+}
+
+.current_page_item {
+text-decoration:underline;
+}
+
+.nav-next a:hover,.nav-previous a:hover {
+border-radius:3px;
+color:#fff;
+background:#333;
+width:260px;
+}
+
+.widget-title {
+text-shadow:1px 1px 2px #999;
+color:#000;
+text-decoration:none;
+margin:10px 0;
+}
+
+.entry-header h1 {
+text-shadow:1px 1px 2px #999;
+margin:3px 0 8px;
+}
+
+.entry-meta a {
+color:#000;
+text-decoration:none;
+padding:1px;
+}
+
+.entry-meta a:hover {
+border-radius:3px;
+color:#fff;
+background:#333;
+padding:1px;
+}
+
+.entry-content p img {
+margin:5px 15px;
+}
+
+.edit-link {
+clear:both;
+border-radius:3px;
+background:#EEE;
+padding:1px 3px;
+}
+
+.edit-link a:hover {
+border-radius:3px;
+color:#fff;
+background:#333;
+padding:1px 3px;
+}
+
+.comment-meta a {
+text-decoration:none;
+color:#000;
+}
+
+.comment-author img {
+float:left;
+padding:0 5px 0 0;
+}
+
+ol.commentlist li.even {
+border-radius:15px;
+background:#eee;
+margin:10px 0 25px 5px;
+padding:15px;
+}
+
+ol.commentlist li.odd {
+border-radius:15px;
+background:#FCFCFC;
+margin:10px 0 25px 25px;
+padding:15px;
+}
+
+.pingback {
+list-style:none;
+background:#fff;
+margin:0;
+padding:0;
+}
+
+.widget-area ul ul {
+list-style:none;
+padding:0;
+}
+
+a,.widget-area a {
+color:#000;
+}
+
+.nav-next a,.nav-previous a,.comment-edit-link {
+color:#000;
+text-decoration:none;
+}
+
+.comment,.children {
+list-style:none;
+}
+
+#justcss_footer_div {
+font-family:Arial,Helvetica,Sans-Serif;
+margin:0 auto;
+}
+
+.form-allowed-tags {
+color:#888;
+}
+
+.gallery img {
+border:none !important;
+}
+
+table {
+border-collapse:collapse;
+margin:5px;
+}
+
+td,th {
+border:1px #ccc solid;
+padding:.3em;
+}
+
+thead {
+background:#fc9;
+}
+
+#reply-title {
+padding:15px 0 0;
+}
+
+#colophon a {
+text-decoration:none;
+}
+
+.widget-area ul {
+list-style:none;
+padding:5px;
+}
+
+article {
+margin:0 0 15px;
+padding:5px;
+}
+
+ol.commentlist,article.comment {
+margin:0;
+padding:0;
+}
+
+.reply,input[type="text"],input#s {
+margin:0 0 15px;
+}
+
+.justcss_footer_class,.wp-post-image {
+float:right;
+}
+
+#access ul li:hover > ul,.paged #content #nav-above,.single #content #nav-above,article.comment,#respond .form-allowed-tags code {
+display:block;
+}
+
+#content #nav-above,#searchform label,#respond .comment-form-comment label {
+display:none;
+}
+
+.error404 .widget .widgettitle,.error404 .widget ul,img.alignleft {
+margin-right:1em;
+}
+
+.image-attachment div.entry-meta,.widget-area .widget_search input {
+float:left;
+}
+
+.image-attachment .entry-content,.entry-meta,#comments {
+clear:both;
+}
+.bypostauthor {}
+.gallery-caption {}
+#commentform {
+  width: 80%;
+}
+.admin-bar #page{
+margin-top: 28px;
+}
