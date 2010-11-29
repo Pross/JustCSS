@@ -471,6 +471,6 @@ clear:both;
 #commentform {
   width: 80%;
 }
-.admin-bar #page{
+body.admin-bar {
 margin-top: 28px;
 }
