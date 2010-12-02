@@ -1,52 +1,24 @@
 <?php
 
-add_action('jcss_footer', 'jcss_footer_default');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add_action( 'jcss_footer', 'jcss_footer_default' );
 
 $data = get_theme_data( TEMPLATEPATH . '/style.css' );
 define( 'JCSS_VERSION', $data[ 'Version' ] );
 
+add_theme_support( 'post-formats', array( 'aside' ) );
 add_theme_support( 'post-thumbnails' );
 add_custom_background();
 add_editor_style();
-
-
-
 load_theme_textdomain( 'justcss', TEMPLATEPATH . '/languages' );
+
 add_filter( 'the_content', 'add_thumbs' );
-add_action('wp_head', 'justcss_css', 1);
-add_filter('rewrite_rules_array','wp_insertMyRewriteRules');
-add_filter('query_vars','wp_insertMyRewriteQueryVars');
-add_filter('init','flushRules');
-add_filter('query_vars', 'add_new_var_to_wp');
-add_action('template_redirect', 'dynamic_css_display');
-add_action('init','show_bar', 1);
-
-
+add_action( 'wp_head', 'justcss_css', 1 );
+add_filter( 'rewrite_rules_array', 'wp_insertMyRewriteRules' );
+add_filter( 'query_vars', 'wp_insertMyRewriteQueryVars' );
+add_filter( 'init', 'flushRules' );
+add_filter( 'query_vars', 'add_new_var_to_wp' );
+add_action( 'template_redirect', 'dynamic_css_display' );
+add_action( 'init','show_bar', 1 );
 
 /**
  * Make theme available for translation
@@ -79,7 +51,7 @@ add_theme_support( 'automatic-feed-links' );
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
 function jcss_page_menu_args($args) {
-	$args['show_home'] = true;
+	$args[ 'show_home' ] = true;
 	return $args;
 }
 add_filter( 'wp_page_menu_args', 'jcss_page_menu_args' );
@@ -100,26 +72,26 @@ function jcss_widgets_init() {
 add_action( 'init', 'jcss_widgets_init' );
 
 function add_thumbs( $content ) {
-the_post_thumbnail( 'thumbnail', array('class' => 'alignright shadow') );
-return $content;
+	the_post_thumbnail( 'thumbnail', array( 'class' => 'alignright shadow' ) );
+	return $content;
 }
- 
+
 function justcss_css() {
 global $is_gecko, $is_chrome, $is_safari, $is_IE;
-wp_enqueue_style('html5reset', get_template_directory_uri() . '/css/html5reset.css', false, JCSS_VERSION);
-wp_enqueue_style('justcss', get_template_directory_uri() . '/css/justcss.css', false, JCSS_VERSION);
+wp_enqueue_style( 'html5reset', get_template_directory_uri() . '/css/html5reset.css', false, JCSS_VERSION );
+wp_enqueue_style( 'justcss', get_template_directory_uri() . '/css/justcss.css', false, JCSS_VERSION );
 wp_register_style( 'justcss-firefox', get_template_directory_uri() . '/css/firefox.css', false, JCSS_VERSION );
 wp_register_style( 'justcss-ie', get_template_directory_uri() . '/css/ie.css', false, JCSS_VERSION );
 
-if ($is_gecko || $is_chrome || $is_safari) wp_enqueue_style( 'justcss-firefox' );
+if ( $is_gecko || $is_chrome || $is_safari ) wp_enqueue_style( 'justcss-firefox' );
 
-if ($is_IE) add_action('wp_head', 'ie_stuff');
+if ( $is_IE ) add_action( 'wp_head', 'ie_stuff' );
 
-if ( get_option('permalink_structure') != '' ) {
-wp_enqueue_style('user_css', home_url() . '/custom.css/', false, null );
+if ( get_option( 'permalink_structure' ) != '' ) {
+wp_enqueue_style( 'user_css', home_url() . '/custom.css/', false, null );
 wp_enqueue_style( 'justcss-ie' );
 } else {
-wp_enqueue_style('user_css', home_url() . '/?css=custom', false, JCSS_VERSION );
+wp_enqueue_style( 'user_css', home_url() . '/?css=custom', false, JCSS_VERSION );
 }
 if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' );
 }
@@ -132,37 +104,56 @@ echo "\r\n" . '<script src="' . get_template_directory_uri() . '/html5.js" type=
 echo "\r\n" . '<![endif]-->';
 }
 
-function flushRules(){
+function flushRules() {
 	global $wp_rewrite;
    	$wp_rewrite->flush_rules();
 }
 // Adding a new rule
-function wp_insertMyRewriteRules($rules)
-{
+function wp_insertMyRewriteRules( $rules ) {
 	$newrules = array();
-	$newrules['^custom\.css'] = '/?css=custom';
+	$newrules[ '^custom\.css' ] = '/?css=custom';
 	return $newrules + $rules;
 }
 // Adding the id var so that WP recognizes it
-function wp_insertMyRewriteQueryVars($vars)
-{
-    array_push($vars, 'id');
+function wp_insertMyRewriteQueryVars( $vars ) {
+    array_push( $vars, 'id' );
     return $vars;
 }
 
-function add_new_var_to_wp($public_query_vars) {
-		array_push($public_query_vars, 'css');
+function add_new_var_to_wp( $public_query_vars ) {
+		array_push( $public_query_vars, 'css' );
 		return $public_query_vars;
 }
-function dynamic_css_display(){
-		$css = get_query_var('css');
-		if ($css == 'custom'){
-			include_once (TEMPLATEPATH . '/css/style.php');
+function dynamic_css_display() {
+		$css = get_query_var( 'css' );
+		if ( $css == 'custom' ){
+			include_once( TEMPLATEPATH . '/css/style.php' );
 			exit;
 		}
 }
-function show_bar(){
-if (isset($_REQUEST['nobar']) && $_REQUEST['nobar'] == 'yes') {
-	define('IFRAME_REQUEST', true);
+function show_bar() {
+if ( isset( $_REQUEST[ 'nobar' ] ) && $_REQUEST[ 'nobar' ] == 'yes' ) {
+	define( 'IFRAME_REQUEST', true );
 	  }
 }
+
+function jcss_aside() {
+  	?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<div class="entry-summary">
+			<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'justcss' ) ); ?>
+		</div><!-- .entry-summary -->
+		<footer class="entry-meta">
+					<?php printf( __( '<a href="%1$s" title="Permalink" rel="bookmark"><time class="entry-date" datetime="%2$s" pubdate>%3$s</time></a>', 'justcss' ),
+						get_permalink(),
+						get_the_date( 'c' ),
+						get_the_date()
+					); ?>
+		<?php if(! is_single()): ?>
+			<span class="meta-sep"> | </span>
+			<?php the_tags( '<span class="tag-links">' . __( 'Tagged ', 'justcss' ) . '</span>', ', ', '<span class="meta-sep"> | </span>' ); ?>
+			<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'justcss' ), __( '1 Comment', 'justcss' ), __( '% Comments', 'justcss' ) ); ?></span>
+		<?php endif; ?>
+			<?php edit_post_link( __( 'Edit', 'justcss' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+		</footer><!-- #entry-meta -->
+	</article><!-- #post-<?php the_ID(); ?> -->
+<?php }

@@ -1,17 +1,16 @@
-<?php 
+<?php
 global $shortname;
-header('Content-type: text/css');   
+header('Content-type: text/css');
 header("Cache-Control: max-age=604800, public, must-revalidate");
-$offset = 372000 ; 
-$ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT"; 
+$offset = 372000 ;
+$ExpStr = 'Expires: ' . gmdate('D, d M Y H:i:s', time() + $offset) . ' GMT';
 header($ExpStr);
 $settings = get_option($shortname.'_options');
 if ($settings['jcss_brackets'] === 'Yes'):
-echo'#site-title a:before{content:\'{\'}
-#site-title a:after{content:\'}\'}';
+echo"#site-title a:before{content:'{'}\n#site-title a:after{content:'}'}";
 endif;
 if ($settings['jcss_bpo'] === 'Yes'):
-echo "\n.bypostauthor { background-color: " . $settings['jcss_bypostauthor'] . "!important}";
+echo "\n.bypostauthor { background-color: " . $settings['jcss_bypostauthor'] . '!important}';
 endif;
 // Variables should be added with {} brackets
 echo <<<CSS

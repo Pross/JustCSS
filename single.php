@@ -10,7 +10,9 @@ get_header(); ?>
 			<div id="content">
 
 			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-
+			<?php if ( has_post_format( 'aside' ) ):
+				jcss_aside();
+				else: ?>
 				<nav id="nav-above">
 					<h1 class="section-heading"><?php _e( 'Post navigation', 'justcss' ); ?></h1>
 					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'justcss' ) . '</span> %title' ); ?></div>
@@ -67,7 +69,7 @@ get_header(); ?>
 					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'justcss' ) . '</span> %title' ); ?></div>
 					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'justcss' ) . '</span>' ); ?></div>
 				</nav><!-- #nav-below -->
-
+				<?php endif; //asides ?>
 				<?php comments_template( '', true ); ?>
 
 			<?php endwhile; // end of the loop. ?>
