@@ -3,7 +3,6 @@
  * @package WordPress
  * @subpackage JustCSS
  */
-
 if ( ! function_exists( 'jcss_comment' ) ) :
 /**
  * Template for comments and pingbacks.
@@ -30,7 +29,6 @@ function jcss_comment( $comment, $args, $depth ) {
 					<em><?php _e( 'Your comment is awaiting moderation.', 'justcss' ); ?></em>
 					<br />
 				<?php endif; ?>
-
 				<div class="comment-meta commentmetadata">
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
 					<?php
@@ -41,14 +39,11 @@ function jcss_comment( $comment, $args, $depth ) {
 					?>
 				</div><!-- .comment-meta .commentmetadata -->
 			</footer>
-
 			<div class="comment-body"><?php comment_text(); ?></div>
-
 			<div class="reply">
 				<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 			</div><!-- .reply -->
 		</article><!-- #comment-##  -->
-
 	<?php
 			break;
 		case 'pingback'  :
@@ -61,9 +56,7 @@ function jcss_comment( $comment, $args, $depth ) {
 	endswitch;
 }
 endif; // ends check for jcss_comment()
-
 ?>
-
 	<div id="comments">
 	<?php if ( post_password_required() ) : ?>
 		<div class="nopassword"><?php _e( 'This post is password protected. Enter the password to view any comments.', 'justcss' ); ?></div>
@@ -71,9 +64,7 @@ endif; // ends check for jcss_comment()
 	<?php return;
 		endif;
 	?>
-
 	<?php // You can start editing here -- including this comment! ?>
-
 	<?php if ( have_comments() ) : ?>
 		<h2 id="comments-title">
 			<?php
@@ -81,7 +72,6 @@ endif; // ends check for jcss_comment()
 			        number_format_i18n( get_comments_number() ), '<em>' . get_the_title() . '</em>' );
 			?>
 		</h2>
-
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-above">
 			<h1 class="section-heading"><?php _e( 'Comment navigation', 'justcss' ); ?></h1>
@@ -101,13 +91,9 @@ endif; // ends check for jcss_comment()
 			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'justcss' ) ); ?></div>
 		</nav>
 		<?php endif; // check for comment navigation ?>
-
 	<?php else : // this is displayed if there are no comments so far ?>
-
 		<?php if ( comments_open() ) : // If comments are open, but there are no comments ?>
-
 		<?php else : // or, if we don't have comments:
-
 			/* If there are no comments and comments are closed,
 			 * let's leave a little note, shall we?
 			 * But only on posts! We don't really need the note on pages.
@@ -116,11 +102,7 @@ endif; // ends check for jcss_comment()
 			?>
 			<p class="nocomments"><?php _e( 'Comments are closed.', 'justcss' ); ?></p>
 			<?php endif; // end ! comments_open() && ! is_page() ?>
-
 		<?php endif; ?>
-
 	<?php endif; ?>
-
 	<?php comment_form(); ?>
-
 </div><!-- #comments -->

@@ -3,14 +3,10 @@
  * @package WordPress
  * @subpackage JustCSS
  */
-
 get_header(); ?>
-
 		<section id="primary">
 			<div id="content">
-
 				<?php the_post(); ?>
-
 				<header class="page-header">
 					<h1 class="page-title">
 						<?php if ( is_day() ) : ?>
@@ -24,13 +20,9 @@ get_header(); ?>
 						<?php endif; ?>
 					</h1>
 				</header>
-
 				<?php rewind_posts(); ?>
-
 				<?php get_template_part( 'loop', 'archive' ); ?>
-
 			</div><!-- #content -->
 		</section><!-- #primary -->
-
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

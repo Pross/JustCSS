@@ -3,18 +3,13 @@
  * @package WordPress
  * @subpackage JustCSS
  */
-
 get_header(); ?>
-
 		<div id="primary" class="image-attachment">
 			<div id="content">
-
 			<?php the_post(); ?>
-
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="entry-header">
 						<h2 class="entry-title"><?php the_title(); ?></h2>
-
 						<div class="entry-meta">
 							<?php
 								$metadata = wp_get_attachment_metadata();
@@ -36,9 +31,7 @@ get_header(); ?>
 							<span class="next-image"><?php next_image_link( false, __( 'Next &rarr;' , 'justcss' ) ); ?></span>
 						</nav><!-- #image-navigation -->
 					</header><!-- .entry-header -->
-
 					<div class="entry-content">
-
 						<div class="entry-attachment">
 							<div class="attachment">
 <?php
@@ -70,19 +63,15 @@ get_header(); ?>
 								echo wp_get_attachment_image( $post->ID, array( $attachment_size, 9999 ) ); // filterable image width with, essentially, no limit for image height.
 								?></a>
 							</div><!-- .attachment -->
-
 							<?php if ( ! empty( $post->post_excerpt ) ) : ?>
 							<div class="entry-caption">
 								<?php the_excerpt(); ?>
 							</div>
 							<?php endif; ?>
 						</div><!-- .entry-attachment -->
-
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'justcss' ), 'after' => '</div>' ) ); ?>
-
 					</div><!-- .entry-content -->
-
 					<div class="entry-utility">
 						<?php if ( comments_open() && pings_open() ) : // Comments and trackbacks open ?>
 							<?php printf( __( '<a class="comment-link" href="#respond" title="Post a comment">Post a comment</a> or leave a trackback: <a class="trackback-link" href="%s" title="Trackback URL for your post" rel="trackback">Trackback URL</a>.', 'justcss' ), get_trackback_url() ); ?>
@@ -96,10 +85,7 @@ get_header(); ?>
 						<?php edit_post_link( __( 'Edit', 'justcss' ), ' <span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-utility -->
 				</article><!-- #post-<?php the_ID(); ?> -->
-
 				<?php comments_template(); ?>
-
 			</div><!-- #content -->
 		</div><!-- #primary -->
-
 <?php get_footer(); ?>

@@ -3,12 +3,9 @@
  * @package WordPress
  * @subpackage JustCSS
  */
-
 get_header(); ?>
-
 		<div id="primary">
 			<div id="content">
-
 			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 			<?php if ( has_post_format( 'aside' ) ):
 				jcss_aside();
@@ -18,11 +15,9 @@ get_header(); ?>
 					<div class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'justcss' ) . '</span> %title' ); ?></div>
 					<div class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'justcss' ) . '</span>' ); ?></div>
 				</nav><!-- #nav-above -->
-
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="entry-header">
 						<h1 class="entry-title"><?php the_title(); ?></h1>
-
 						<div class="entry-meta">
 							<?php
 								printf( __( '<span class="meta-prep meta-prep-author">Posted on </span><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s" pubdate>%3$s</time></a> <span class="meta-sep"> by </span> <span class="author vcard"><a class="url fn n" href="%4$s" title="%5$s">%6$s</a></span>', 'justcss' ),
@@ -36,7 +31,6 @@ get_header(); ?>
 							?>
 						</div><!-- .entry-meta -->
 					</header><!-- .entry-header -->
-
 					<div class="entry-content">
 					<?php do_action('jcss_single_before_content'); ?>
 						<?php the_content(); ?>
@@ -59,7 +53,6 @@ get_header(); ?>
 								the_title_attribute( 'echo=0' )
 							);
 						?>
-
 						<?php edit_post_link( __( 'Edit', 'justcss' ), '<span class="edit-link">', '</span>' ); ?>
 					</footer><!-- .entry-meta -->
 				</article><!-- #post-<?php the_ID(); ?> -->
@@ -71,11 +64,8 @@ get_header(); ?>
 				</nav><!-- #nav-below -->
 				<?php endif; //asides ?>
 				<?php comments_template( '', true ); ?>
-
 			<?php endwhile; // end of the loop. ?>
-
 			</div><!-- #content -->
 		</div><!-- #primary -->
-
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
