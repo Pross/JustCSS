@@ -17,7 +17,10 @@
 <?php while ( have_posts() ) : the_post(); ?>
 	<?php if ( has_post_format( 'aside' ) ):
 	jcss_aside();
-	else: ?>
+	elseif ( has_post_format( 'gallery' ) ):
+jcss_gallery();
+else:
+?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'justcss' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
