@@ -57,12 +57,22 @@ $options = array (
             'type' => 'text',
 	    'class' => 'color {hash:true}'
 	),
+
+    array(  'name' => 'Aside background',
+	    'desc' => 'Custom aside background',
+            'id' => $shortname.'_aside',
+            'std' => '#f2f2f2',
+            'type' => 'text',
+	    'class' => 'color {hash:true}'
+	),
+
     array(  'name' => 'CSS3 Corners',
 	    'desc' => 'Corner size',
             'id' => $shortname.'_corner',
             'std' => '8',
             'type' => 'text',
 	),
+
     array(  'name' => 'Show {} around blogname.',
 	    'desc' => 'removes the brackets',
             'id' => $shortname.'_brackets',
@@ -70,6 +80,7 @@ $options = array (
             'type' => 'radio',
 	    'options' => array('Yes', 'No')
 	),
+
     array(  'name' => 'Font',
             'desc' => 'Primary text colour',
             'id' => $shortname.'_mainfont',
@@ -77,6 +88,7 @@ $options = array (
             'type' => 'text',
             'class' => 'color {hash:true}'
         ),
+
     array(  'name' => 'Theme Width',
 	    'desc' => 'Overall theme width',
             'id' => $shortname.'_width',
