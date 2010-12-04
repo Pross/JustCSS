@@ -224,7 +224,7 @@ margin-left:1em;
 text-align:center;
 background:#eee;
 border-radius:3px;
-padding:.5em;
+padding:.15em;
 }
 
 .wp-caption img {
@@ -494,7 +494,13 @@ clear:both;
 }
 
 .bypostauthor {}
-.gallery-caption {}
+.gallery-caption {
+text-align:center;
+background:#eee;
+border-radius:3px;
+padding:.25em;
+}
+
 #commentform {
   width: 80%;
 }

@@ -19,6 +19,8 @@ add_filter( 'init', 'flushRules' );
 add_filter( 'query_vars', 'add_new_var_to_wp' );
 add_action( 'template_redirect', 'dynamic_css_display' );
 add_action( 'init','show_bar', 1 );
+add_image_size( 'random-thumb', 125, 125 );
+
 /**
  * Make theme available for translation
  * Translations can be filed in the /languages/ directory
@@ -176,14 +178,11 @@ function jcss_gallery() {
 		</header><!-- .entry-header -->
 <?php
 $attachments = get_children( array('post_parent' => get_the_ID(), 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'rand') );
-$attachment = array_rand( $attachments, 1);
-echo '<div style="float:left;padding:5px 15px 5px 5px">' . wp_get_attachment_image($attachment, $size = 'thumbnail', false) . '</div>';
+echo '<div class="wp-caption alignleft">' . wp_get_attachment_image( array_rand( $attachments, 1 ), $size = 'random-thumb', false) . '<p class="wp-caption-text">' . count($attachments) . ' Images.</p></div>';
 ?>
 		<div class="entry-summary">
 			<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'justcss' ) ); ?>
 		</div><!-- .entry-summary -->
-<?php //echo do_shortcode('[pf_gallery orderby="rand" limit="1"]') ?>
-
 		<footer class="entry-meta">
 			<span class="cat-links"><span class="entry-utility-prep entry-utility-prep-cat-links"><?php _e( 'Posted in ', 'justcss' ); ?></span><?php the_category( ', ' ); ?></span>
 			<span class="meta-sep"> | </span>
