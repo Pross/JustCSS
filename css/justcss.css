@@ -232,7 +232,7 @@ margin:.25em;
 }
 
 .wp-caption .wp-caption-text {
-margin:.5em;
+margin:0em;
 }
 
 #searchform input#s {
@@ -499,6 +499,10 @@ text-align:center;
 background:#eee;
 border-radius:3px;
 padding:.25em;
+}
+
+.format-gallery .wp-caption {
+margin: .2em .5em .2em .1em;
 }
 
 #commentform {

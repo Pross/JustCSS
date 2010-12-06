@@ -178,7 +178,7 @@ function jcss_gallery() {
 		</header><!-- .entry-header -->
 <?php
 $attachments = get_children( array('post_parent' => get_the_ID(), 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'rand') );
-echo '<div class="wp-caption alignleft">' . wp_get_attachment_image( array_rand( $attachments, 1 ), $size = 'random-thumb', false) . '<p class="wp-caption-text">' . count($attachments) . ' Images.</p></div>';
+if ( $attachments ) echo '<div class="wp-caption alignleft">' . wp_get_attachment_image( array_rand( $attachments, 1 ), $size = 'random-thumb', false) . '<p class="wp-caption-text">' . count($attachments) . ' Images.</p></div>';
 ?>
 		<div class="entry-summary">
 			<?php the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'justcss' ) ); ?>
