@@ -1,7 +1,7 @@
 <?php
-include('functions/justcss_functions.php');
-include('functions/cpanel.php');
-require('functions/filters.php');
+require_once( 'functions/justcss_functions.php' );
+require_once( 'functions/cpanel.php' );
+require_once( 'functions/filters.php' );
 
 
 add_filter('jcss_footer_filter', 'footer_add_version');

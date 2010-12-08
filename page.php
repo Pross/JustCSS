@@ -6,7 +6,7 @@
 get_header(); ?>
 		<div id="primary">
 		  <?php do_action( 'jcss_hook_page_before_content' ); ?>
-			<div id="content">
+			<div id="content" role="main">
 				<?php the_post(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

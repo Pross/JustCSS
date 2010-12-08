@@ -37,8 +37,9 @@ margin:0;
 
 .screen-reader-text,
 .section-heading {
-position:absolute;
-left:-9000em;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .alignleft {
@@ -274,6 +275,7 @@ border-radius:15px;
 background:#EEE;
 width:280px;
 padding:1em 0 0;
+margin-bottom: 20px;
 }
 
 .widget {

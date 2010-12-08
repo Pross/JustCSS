@@ -62,8 +62,17 @@ add_filter( 'wp_page_menu_args', 'jcss_page_menu_args' );
  */
 function jcss_widgets_init() {
 	register_sidebar( array (
-		'name' => __( 'Sidebar', 'justcss' ),
-		'id' => 'sidebar',
+		'name' => __( 'Sidebar 1', 'justcss' ),
+		'id' => 'sidebar-1',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h1 class="widget-title">',
+		'after_title' => '</h1>',
+	) );
+	register_sidebar( array (
+		'name' => __( 'Sidebar 2', 'justcss' ),
+		'id' => 'sidebar-2',
+		'description' => __( 'An optional second sidebar area', 'justcss' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget' => "</aside>",
 		'before_title' => '<h1 class="widget-title">',

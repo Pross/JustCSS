@@ -155,7 +155,7 @@ update_option( $shortname.'_options', $new_options );
             die;
         }
     }
-    add_theme_page( $justcss.' Options', 'JustCSS Options', 'edit_themes', basename( __FILE__ ), 'mytheme_admin' );
+    add_theme_page( $justcss.' Options', 'JustCSS Options', 'edit_theme_options', basename( __FILE__ ), 'mytheme_admin' );
 
 }
 

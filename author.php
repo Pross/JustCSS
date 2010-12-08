@@ -5,7 +5,7 @@
  */
 get_header(); ?>
 		<section id="primary">
-			<div id="content">
+			<div id="content" role="main">
 				<?php the_post(); ?>
 
 				<header class="page-header">

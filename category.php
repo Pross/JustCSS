@@ -5,7 +5,7 @@
  */
 get_header(); ?>
 		<section id="primary">
-			<div id="content">
+			<div id="content" role="main">
 				<header class="page-header">
 					<h1 class="page-title"><?php
 						printf( __( 'Category Archives: %s', 'justcss' ), '<span>' . single_cat_title( '', false ) . '</span>' );
