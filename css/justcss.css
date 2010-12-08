@@ -513,3 +513,8 @@ margin: .2em .5em .2em .1em;
 body.admin-bar {
 margin-top: 28px;
 }
+
+.wp-smiley {
+margin: 0px !important;
+padding: 0px !important;
+}
