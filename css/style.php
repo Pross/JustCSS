@@ -12,6 +12,13 @@ endif;
 if ($settings['jcss_bpo'] === 'Yes'):
 echo "\n.bypostauthor { background-color: " . $settings['jcss_bypostauthor'] . '!important}';
 endif;
+
+if ($settings['jcss_nav_col'] === 'JustCSS'):
+echo "\n#access li:hover > a,\n#access ul ul :hover > a,\n#access ul ul a { background:#333; color:#fff; }\n#access ul ul a:hover { background:#000; }";
+endif;
+if ($settings['jcss_nav_col'] === 'ToolBox'):
+echo "\n#access li:hover > a,\n#access ul ul :hover > a,\n#access ul ul a { background: #dedede; }\n#access ul ul a:hover { background: #cecece; }";
+endif;
 // Variables should be added with {} brackets
 echo <<<CSS
 \n#site-title a,

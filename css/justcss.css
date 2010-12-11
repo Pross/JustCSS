@@ -100,7 +100,7 @@ position:relative;
 #access a {
 display:block;
 line-height:2em;
-color:#000;
+/*color:#000;*/
 text-decoration:none;
 padding:0 8px;
 }
@@ -115,7 +115,7 @@ position:absolute;
 top:2em;
 left:0;
 z-index:99999;
-border-radius:15px;
+/*border-radius:15px;*/
 }
 
 #access ul ul ul {
@@ -124,8 +124,8 @@ top:0;
 }
 
 #access ul ul a {
-background:#333;
-color:#fff;
+/*background:#333;
+color:#fff;*/
 line-height:1em;
 width:10em;
 height:auto;
@@ -134,12 +134,12 @@ padding:.5em .5em .5em 0.5em;
 
 #access li:hover > a,
 #access ul ul :hover > a {
-background:#333;
-color:#fff;
+/*background:#333;
+color:#fff;*/
 }
 
 #access ul ul a:hover {
-background:#000;
+/*background:#000;*/
 }
 
 #content nav {

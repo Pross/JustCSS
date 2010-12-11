@@ -12,6 +12,15 @@ $options = array (
 	    'class' => 'color {hash:true}'
 	),
 
+    array(  'name' => 'Nav colour scheme',
+	    'desc' => '',
+            'id' => $shortname.'_nav_col',
+            'std' => 'JustCSS',
+            'type' => 'radio',
+	    'options' => array('JustCSS', 'ToolBox')
+	),
+
+
     array(  'name' => 'Widget colour',
 	    'desc' => 'Custom widget colours',
             'id' => $shortname.'_widget',
