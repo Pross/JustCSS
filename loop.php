@@ -15,11 +15,8 @@
 <?php endif; ?>
 <?php /* Start the Loop */ ?>
 <?php while ( have_posts() ) : the_post(); ?>
-	<?php if ( has_post_format( 'aside' ) ):
-	jcss_aside();
-	elseif ( has_post_format( 'gallery' ) ):
-jcss_gallery();
-else:
+<?php if ( get_template_part( 'format', get_post_format() ) );
+else
 ?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
@@ -55,7 +52,6 @@ else:
 			<?php edit_post_link( __( 'Edit', 'justcss' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
 		</footer><!-- #entry-meta -->
 	</article><!-- #post-<?php the_ID(); ?> -->
-	<?php endif; // asides ?>
 	<?php comments_template( '', true ); ?>
 	<?php endwhile; ?>
 <?php /* Display navigation to next/previous pages when applicable */ ?>
