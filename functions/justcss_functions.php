@@ -1,5 +1,4 @@
 <?php
-
 add_action( 'jcss_footer', 'jcss_footer_default' );
 
 $data = get_theme_data( TEMPLATEPATH . '/style.css' );
@@ -13,13 +12,35 @@ load_theme_textdomain( 'justcss', TEMPLATEPATH . '/languages' );
 
 add_filter( 'the_content', 'add_thumbs' );
 add_action( 'wp_head', 'justcss_css', 1 );
-add_filter( 'rewrite_rules_array', 'wp_insertMyRewriteRules' );
-add_filter( 'query_vars', 'wp_insertMyRewriteQueryVars' );
-add_filter( 'init', 'flushRules' );
-add_filter( 'query_vars', 'add_new_var_to_wp' );
-add_action( 'template_redirect', 'dynamic_css_display' );
 add_action( 'init','show_bar', 1 );
 add_image_size( 'random-thumb', 125, 125 );
+add_action( 'wp_head', 'ie_stuff' );
+add_action('wp_head', 'jcss_do_css');
+
+function jcss_do_css() {
+$options = get_option('jcss_options');
+echo "<style type=\"text/css\">";
+if ($options['brackets'] === 'Yes'):
+echo"#site-title a:before{content:'{'} #site-title a:after{content:'}'}";
+endif;
+if ($options['bpo'] === 'Yes'):
+echo ".bypostauthor { background-color: " . $options['bypostauthor'] . '!important}';
+endif;
+if ($options['nav_col'] === 'JustCSS'):
+echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background:#333; color:#fff; } #access ul ul a:hover { background:#000; }";
+endif;
+if ($options['nav_col'] === 'Toolbox'):
+echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background: #dedede; } #access ul ul a:hover { background: #cecece; }";
+endif;
+// Variables should be added with {} brackets
+echo <<<CSS
+#site-title a, .nav-next a, .nav-previous a, .entry-meta a, a, #page { color: {$options['mainfont']}; } #access { background-color: {$options['nav']};} .widget-area { background-color: {$options['widget']}; } ol.commentlist li.even { background-color: {$options['even']}; } ol.commentlist li.odd { background-color: {$options['odd']}; } #page, #justcss_footer_div { width: {$options['width']}px; } .sticky { background-color: {$options['sticky']}; -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; } ol.commentlist li.odd, ol.commentlist li.even { -webkit-border-radius: {$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius: {$options['corner']}px; } .widget-area { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; } #access { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px;} .format-aside { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; background-color: {$options['aside']};}
+CSS;
+//More php can go here
+echo <<<CSS
+CSS;
+echo "</style>\n";
+}
 
 /**
  * Make theme available for translation
@@ -87,60 +108,27 @@ function add_thumbs( $content ) {
 }
 
 function justcss_css() {
-global $is_gecko, $is_chrome, $is_safari, $is_IE;
 wp_enqueue_style( 'html5reset', get_template_directory_uri() . '/css/html5reset.css', false, JCSS_VERSION );
 wp_enqueue_style( 'justcss', get_template_directory_uri() . '/css/justcss.css', false, JCSS_VERSION );
 wp_register_style( 'justcss-firefox', get_template_directory_uri() . '/css/firefox.css', false, JCSS_VERSION );
 wp_register_style( 'justcss-ie', get_template_directory_uri() . '/css/ie.css', false, JCSS_VERSION );
-
-if ( $is_gecko || $is_chrome || $is_safari ) wp_enqueue_style( 'justcss-firefox' );
-
-if ( $is_IE ) add_action( 'wp_head', 'ie_stuff' );
-
-if ( get_option( 'permalink_structure' ) != '' ) {
-wp_enqueue_style( 'user_css', home_url() . '/custom.css/', false, null );
-wp_enqueue_style( 'justcss-ie' );
-} else {
-wp_enqueue_style( 'user_css', home_url() . '/?css=custom', false, JCSS_VERSION );
-}
+wp_enqueue_style( 'justcss-firefox' );
 if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' );
 }
 
 function ie_stuff() {
 wp_enqueue_style( 'justcss-ie' );
-echo '<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />';
-echo "\r\n" . '<!--[if lt IE 9]>';
+//echo '<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />';
+echo '<!--[if lt IE 9]>';
+echo "\r\n" . '<style type="text/css" media="screen">
+#access, .comment, .widget-area {
+behavior: url(" '. get_template_directory_uri() . '/css/PIE.php");
+}
+</style>';
 echo "\r\n" . '<script src="' . get_template_directory_uri() . '/html5.js" type="text/javascript"></script>';
-echo "\r\n" . '<![endif]-->';
+echo "\r\n" . '<![endif]-->' . "\r\n";
 }
 
-function flushRules() {
-	global $wp_rewrite;
-   	$wp_rewrite->flush_rules();
-}
-// Adding a new rule
-function wp_insertMyRewriteRules( $rules ) {
-	$newrules = array();
-	$newrules[ '^custom\.css' ] = '/?css=custom';
-	return $newrules + $rules;
-}
-// Adding the id var so that WP recognizes it
-function wp_insertMyRewriteQueryVars( $vars ) {
-    array_push( $vars, 'id' );
-    return $vars;
-}
-
-function add_new_var_to_wp( $public_query_vars ) {
-		array_push( $public_query_vars, 'css' );
-		return $public_query_vars;
-}
-function dynamic_css_display() {
-		$css = get_query_var( 'css' );
-		if ( $css == 'custom' ){
-			include_once( TEMPLATEPATH . '/css/style.php' );
-			exit;
-		}
-}
 function show_bar() {
 if ( isset( $_REQUEST[ 'nobar' ] ) && $_REQUEST[ 'nobar' ] == 'yes' ) {
 	define( 'IFRAME_REQUEST', true );
