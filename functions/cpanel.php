@@ -1,10 +1,10 @@
 <?php 
-add_action('admin_init', 'sampleoptions_init_fn' );
-add_action('admin_menu', 'sampleoptions_add_page_fn');
+add_action('admin_init', 'jcss_options_init_fn' );
+add_action('admin_menu', 'jcss_options_add_page_fn');
 add_action('init', 'add_defaults_fn');
 
 
-function sampleoptions_init_fn(){
+function jcss_options_init_fn(){
 	wp_register_script( 'jscolor', get_stylesheet_directory_uri() . '/functions/jscolor/jscolor.js' );
 	wp_enqueue_script( 'jscolor' );
 	register_setting('jcss_options', 'jcss_options', 'jcss_options_validate' );
@@ -26,7 +26,7 @@ function sampleoptions_init_fn(){
 }
 
 // Add sub page to the Settings Menu
-function sampleoptions_add_page_fn() {
+function jcss_options_add_page_fn() {
 //	add_options_page('Options Example Page', 'Options Example', 'administrator', __FILE__, 'options_page_fn');
 add_theme_page( 'JustCSS Options', 'JustCSS Options', 'edit_theme_options', basename( __FILE__ ), 'options_page_fn' );
 }
@@ -36,7 +36,7 @@ add_theme_page( 'JustCSS Options', 'JustCSS Options', 'edit_theme_options', base
 // Callback functions
 
 function  section_text_fn() {
-	echo '<p>Below are some examples of different option controls.</p>';
+//	echo '<p>The main JustCSS options.</p>';
 }
 
 function setting_nav_fn() {
@@ -129,8 +129,7 @@ function options_page_fn() {
 ?>
 	<div class="wrap">
 		<div class="icon32" id="icon-options-general"><br></div>
-		<h2>My Example Options Page</h2>
-		Some optional text here explaining the overall purpose of the options and what they relate to etc.
+		<h2>JustCSS Options Page</h2>
 		<form action="options.php" method="post">
 		<?php settings_fields('jcss_options'); ?>
 		<?php do_settings_sections(__FILE__); ?>
