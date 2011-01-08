@@ -338,8 +338,8 @@ margin:5px 15px;
 .edit-link {
 clear:both;
 border-radius:3px;
-background:#EEE;
-padding:1px 3px;
+padding:5px 3px 2px;
+display: block;
 }
 
 .edit-link a:hover {
