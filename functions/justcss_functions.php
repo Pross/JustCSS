@@ -24,7 +24,7 @@ if ($options['brackets'] === 'Yes'):
 echo"#site-title a:before{content:'{'} #site-title a:after{content:'}'}";
 endif;
 if ($options['bpo'] === 'Yes'):
-echo ".bypostauthor { background-color: " . $options['bypostauthor'] . '!important}';
+echo ".bypostauthor { background-color: #" . $options['bypostauthor'] . '!important}';
 endif;
 if ($options['nav_col'] === 'JustCSS'):
 echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background:#333; color:#fff; } #access ul ul a:hover { background:#000; }";
@@ -34,7 +34,7 @@ echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { backgrou
 endif;
 // Variables should be added with {} brackets
 echo <<<CSS
-#site-title a, .nav-next a, .nav-previous a, .entry-meta a, a, #page { color: {$options['mainfont']}; } #access { background-color: {$options['nav']};} .widget-area { background-color: {$options['widget']}; } ol.commentlist li.even { background-color: {$options['even']}; } ol.commentlist li.odd { background-color: {$options['odd']}; } #page, #justcss_footer_div { width: {$options['width']}px; } .sticky { background-color: {$options['sticky']}; -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; } ol.commentlist li.odd, ol.commentlist li.even { -webkit-border-radius: {$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius: {$options['corner']}px; } .widget-area { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; } #access { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px;} .format-aside { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; background-color: {$options['aside']};}
+#site-title a, .nav-next a, .nav-previous a, .entry-meta a, a, #page { color: #{$options['mainfont']}; } #access { background-color: #{$options['nav']};} .widget-area { background-color: #{$options['widget']}; } ol.commentlist li.even { background-color: #{$options['even']}; } ol.commentlist li.odd { background-color: #{$options['odd']}; } #page, #justcss_footer_div { width: {$options['width']}px; } .sticky { background-color: #{$options['sticky']}; -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; } ol.commentlist li.odd, ol.commentlist li.even { -webkit-border-radius: {$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius: {$options['corner']}px; } .widget-area { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; } #access { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px;} .format-aside { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; background-color: #{$options['aside']};}
 CSS;
 //More php can go here
 echo <<<CSS
@@ -125,7 +125,7 @@ echo "\r\n" . '<style type="text/css" media="screen">
 behavior: url(" '. get_template_directory_uri() . '/css/PIE.php");
 }
 </style>';
-echo "\r\n" . '<script src="' . get_template_directory_uri() . '/html5.js" type="text/javascript"></script>';
+echo "\r\n" . '<script src="' . get_template_directory_uri() . '/css/html5.js" type="text/javascript"></script>';
 echo "\r\n" . '<![endif]-->' . "\r\n";
 }
 
