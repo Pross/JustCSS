@@ -4,7 +4,7 @@ Contributers: Pross
 Tags: translation-ready, microformats, rtl-language-support, two-columns, flexible-width, threaded-comments, theme-options, custom-menu, sticky-post, custom-background, custom-colors, custom-menu, editor-style 
 
 == Description ==
-Pure HTML5 theme with custom colours using css3 originally based on Toolbox.
+Pure HTML5 theme with custom colours using css3 originally based on Toolbox. Includes support for aside and gallery post-formats.
 
 == Notes ==
 = The following actions/filters are included =
@@ -30,6 +30,13 @@ These filters are to be used in your child theme `functions.php`
 
 
 == Changelog ==
+
+= 1.0 = 
+* Moved to settings API with full dtat validation with regex.
+* Removed dynamic css file style.php ( css added to head now to save requests to db ).
+* Added support for post-formats ( aside, gallery ).
+* format galley has random image shown on index.
+* included PIE to render CSS3 in IE < 9.
 
 = 0.9 =
 * Released.

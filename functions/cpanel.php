@@ -148,7 +148,10 @@ function setting_width_fn() {
 
 function setting_reset_fn() {
 	$options = get_option('jcss_options');
-	if($options['reset']) { $checked = ' checked="checked" '; }
+$checked = ( isset( $options['reset']) ) ? ' checked="checked" ' : '';
+
+
+//	if( isset( $options['reset']) ) { $checked = ' checked="checked" '; }
 	echo "<input ".$checked." id='reset' name='jcss_options[reset]' type='checkbox' />";
 }
 

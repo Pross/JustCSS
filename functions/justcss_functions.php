@@ -7,7 +7,7 @@ define( 'JCSS_VERSION', $data[ 'Version' ] );
 add_theme_support( 'post-formats', array( 'aside', 'gallery' ) );
 add_theme_support( 'post-thumbnails' );
 add_custom_background();
-add_editor_style();
+add_editor_style( 'css/editor-style.css' );
 load_theme_textdomain( 'justcss', TEMPLATEPATH . '/languages' );
 
 add_filter( 'the_content', 'add_thumbs' );
