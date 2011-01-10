@@ -31,6 +31,9 @@ These filters are to be used in your child theme `functions.php`
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed admin bug.
+
 = 1.0 = 
 * Moved to settings API with full dtat validation with regex.
 * Removed dynamic css file style.php ( css added to head now to save requests to db ).

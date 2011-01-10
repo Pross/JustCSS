@@ -50,13 +50,13 @@ function options_page_fn() {
 function jcss_options_validate($input) {
 	$input['corner'] = (int) $input['corner'];	
 	$input['width'] = (int) $input['width'];
-	if ( preg_match( '^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$', $input['nav'], $out ) ) $input['nav'] = $out[0];
-	if ( preg_match( '^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$', $input['widget'], $out ) ) $input['widget'] = $out[0];
-	if ( preg_match( '^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$', $input['sticky'], $out ) ) $input['sticky'] = $out[0];
-	if ( preg_match( '^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$', $input['bypostauthor'], $out ) ) $input['bypostauthor'] = $out[0];
-	if ( preg_match( '^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$', $input['odd'], $out ) ) $input['odd'] = $out[0];
-	if ( preg_match( '^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$', $input['even'], $out ) ) $input['even'] = $out[0];
-	if ( preg_match( '^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$', $input['aside'], $out ) ) $input['aside'] = $out[0];
+	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['nav'], $out ) ) $input['nav'] = $out[0];
+	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['widget'], $out ) ) $input['widget'] = $out[0];
+	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['sticky'], $out ) ) $input['sticky'] = $out[0];
+	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['bypostauthor'], $out ) ) $input['bypostauthor'] = $out[0];
+	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['odd'], $out ) ) $input['odd'] = $out[0];
+	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['even'], $out ) ) $input['even'] = $out[0];
+	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['aside'], $out ) ) $input['aside'] = $out[0];
 	return $input; // return validated input
 }
 // ************************************************************************************************************
