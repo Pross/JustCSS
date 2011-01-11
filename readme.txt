@@ -31,6 +31,9 @@ These filters are to be used in your child theme `functions.php`
 
 == Changelog ==
 
+= 1.0.3 =
+* live.
+
 = 1.0.2 =
 * Fixed admin bug.
 
