@@ -2,9 +2,8 @@
 add_action('admin_init', 'jcss_options_init_fn' );
 add_action('admin_menu', 'jcss_options_add_page_fn');
 add_action('init', 'add_defaults_fn');
-
 function jcss_options_init_fn(){
-	wp_register_script( 'jscolor', get_stylesheet_directory_uri() . '/functions/jscolor/jscolor.js' );
+	wp_register_script( 'jscolor', get_template_directory_uri() . '/functions/jscolor/jscolor.js' );
 	wp_enqueue_script( 'jscolor' );
 	register_setting('jcss_options', 'jcss_options', 'jcss_options_validate' );
 	add_settings_section('main_section', 'Main Settings', 'section_text_fn', __FILE__);
@@ -50,13 +49,14 @@ function options_page_fn() {
 function jcss_options_validate($input) {
 	$input['corner'] = (int) $input['corner'];	
 	$input['width'] = (int) $input['width'];
-	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['nav'], $out ) ) $input['nav'] = $out[0];
-	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['widget'], $out ) ) $input['widget'] = $out[0];
-	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['sticky'], $out ) ) $input['sticky'] = $out[0];
-	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['bypostauthor'], $out ) ) $input['bypostauthor'] = $out[0];
-	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['odd'], $out ) ) $input['odd'] = $out[0];
-	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['even'], $out ) ) $input['even'] = $out[0];
-	if ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['aside'], $out ) ) $input['aside'] = $out[0];
+	$input['nav'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['nav'], $out ) ) ? $out[0] : 'eee';
+	$input['widget'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['widget'], $out ) ) ? $out[0] : 'eee';
+	$input['sticky'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['sticky'], $out ) ) ? $out[0] : 'eee';
+	$input['bypostauthor'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['bypostauthor'], $out ) ) ? $out[0] : 'eee';
+	$input['odd'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['odd'], $out ) ) ? $out[0] : 'fcfcfc';
+	$input['even'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['even'], $out ) ) ? $out[0] : 'eee';
+	$input['aside'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['aside'], $out ) ) ? $out[0] : 'f2f2f2';
+	$input['mainfont'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['mainfont'], $out ) ) ? $out[0] : '000';
 	return $input; // return validated input
 }
 // ************************************************************************************************************
@@ -158,7 +158,7 @@ $checked = ( isset( $options['reset']) ) ? ' checked="checked" ' : '';
 function add_defaults_fn() {
 	$tmp = get_option('jcss_options');
     if ( ( isset( $tmp['reset'] ) && $tmp['reset'] == 'on' ) || ( !is_array( $tmp ) ) ) {
-		$arr = array("nav"=>"eee", "nav_col" => "JustCSS", "widget" => "eee", "sticky" => "eee", "bpo" => "No", "bypostauthor" => "eee", "even" => "eee", 'odd' => 'fcfcfc', 'aside' => 'f2f2f2', 'corner' => '8', 'brackets' => 'Yes', 'mainfont' => '000000', 'width' => '1024');
+		$arr = array("nav"=>"eee", "nav_col" => "JustCSS", "widget" => "eee", "sticky" => "eee", "bpo" => "No", "bypostauthor" => "eee", "even" => "eee", 'odd' => 'fcfcfc', 'aside' => 'f2f2f2', 'corner' => '8', 'brackets' => 'Yes', 'mainfont' => '000', 'width' => '1024');
 		update_option('jcss_options', $arr);
 	}
 }
