@@ -1,0 +1,329 @@
+# Copyright (C) 2010 JustCSS
+# This file is distributed under the same license as the JustCSS package.
+msgid ""
+msgstr ""
+"Project-Id-Version: JustCSS 1.0.3\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/justcss\n"
+"POT-Creation-Date: 2011-01-13 21:58:47+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: archive.php:13
+msgid "Daily Archives: <span>%s</span>"
+msgstr ""
+
+#: archive.php:15
+msgid "Monthly Archives: <span>%s</span>"
+msgstr ""
+
+#: archive.php:17
+msgid "Yearly Archives: <span>%s</span>"
+msgstr ""
+
+#: archive.php:19
+msgid "Blog Archives"
+msgstr ""
+
+#: functions/justcss_functions.php:64
+msgid "Primary Menu"
+msgstr ""
+
+#: functions/justcss_functions.php:86
+msgid "Sidebar 1"
+msgstr ""
+
+#: functions/justcss_functions.php:94
+msgid "Sidebar 2"
+msgstr ""
+
+#: functions/justcss_functions.php:96
+msgid "An optional second sidebar area"
+msgstr ""
+
+#: functions/cpanel.php:41
+msgid "Save Changes"
+msgstr ""
+
+#: functions/filters.php:3
+msgid "A Semantic Personal Publishing Platform"
+msgstr ""
+
+#: functions/filters.php:3
+msgid "Proudly powered by WordPress"
+msgstr ""
+
+#: sidebar.php:13
+msgid "Archives"
+msgstr ""
+
+#: sidebar.php:19
+msgid "Meta"
+msgstr ""
+
+#: page.php:18 format-standard.php:24 single.php:35 image.php:73
+#: full-width-page.php:19
+msgid "Pages:"
+msgstr ""
+
+#: page.php:19 format-aside.php:16 format-gallery.php:29
+#: format-standard.php:32 single.php:53 image.php:26 image.php:85
+#: full-width-page.php:20
+msgid "Edit"
+msgstr ""
+
+#: format-aside.php:3 format-gallery.php:22 format-standard.php:19
+#: format-standard.php:23
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: format-aside.php:6
+msgid ""
+"<a href=\"%1$s\" title=\"Permalink\" rel=\"bookmark\"><time class=\"entry-"
+"date\" datetime=\"%2$s\" pubdate>%3$s</time></a>"
+msgstr ""
+
+#: format-aside.php:13 format-gallery.php:27 format-standard.php:30
+msgid "Tagged "
+msgstr ""
+
+#: format-aside.php:14 format-gallery.php:28 format-standard.php:31
+msgid "Leave a comment"
+msgstr ""
+
+#: format-aside.php:14 format-gallery.php:28 format-standard.php:31
+msgid "1 Comment"
+msgstr ""
+
+#: format-aside.php:14 format-gallery.php:28 format-standard.php:31
+msgid "% Comments"
+msgstr ""
+
+#: format-gallery.php:3 format-standard.php:3
+msgid "Permalink to %s"
+msgstr ""
+
+#: format-gallery.php:6 format-standard.php:6 single.php:20
+msgid ""
+"<span class=\"meta-prep meta-prep-author\">Posted on </span><a href=\"%1$s\" "
+"rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%2$s\" pubdate>%3$s</"
+"time></a> <span class=\"meta-sep\"> by </span> <span class=\"author vcard"
+"\"><a class=\"url fn n\" href=\"%4$s\" title=\"%5$s\">%6$s</a></span>"
+msgstr ""
+
+#: format-gallery.php:11 format-standard.php:11 single.php:25
+msgid "View all posts by %s"
+msgstr ""
+
+#: format-gallery.php:25 format-standard.php:28
+msgid "Posted in "
+msgstr ""
+
+#: tag.php:14
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: category.php:11
+msgid "Category Archives: %s"
+msgstr ""
+
+#: header.php:24
+msgid "Page %s"
+msgstr ""
+
+#: header.php:39
+msgid "Main menu"
+msgstr ""
+
+#: header.php:40
+msgid "Skip to content"
+msgstr ""
+
+#: loop.php:11 loop.php:31 single.php:11 single.php:58
+msgid "Post navigation"
+msgstr ""
+
+#: loop.php:12 loop.php:32
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: loop.php:13 loop.php:33
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: 404.php:11
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: 404.php:14
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching, or one of the links below, can help."
+msgstr ""
+
+#: 404.php:18
+msgid "Most Used Categories"
+msgstr ""
+
+#: 404.php:24
+msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: single.php:12 single.php:59
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: single.php:13 single.php:60
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr ""
+
+#: single.php:41
+msgid ""
+"This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" "
+"title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr ""
+
+#: single.php:43
+msgid ""
+"This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" title="
+"\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
+msgstr ""
+
+#: image.php:16
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><abbr class=\"published\" title=\"%1$s\">%2$s</abbr></span>  "
+"at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; %5$s</a> "
+"in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%7$s</a>"
+msgstr ""
+
+#: image.php:30
+msgid "&larr; Previous"
+msgstr ""
+
+#: image.php:31
+msgid "Next &rarr;"
+msgstr ""
+
+#: image.php:77
+msgid ""
+"<a class=\"comment-link\" href=\"#respond\" title=\"Post a comment\">Post a "
+"comment</a> or leave a trackback: <a class=\"trackback-link\" href=\"%s\" "
+"title=\"Trackback URL for your post\" rel=\"trackback\">Trackback URL</a>."
+msgstr ""
+
+#: image.php:79
+msgid ""
+"Comments are closed, but you can leave a trackback: <a class=\"trackback-link"
+"\" href=\"%s\" title=\"Trackback URL for your post\" rel=\"trackback"
+"\">Trackback URL</a>."
+msgstr ""
+
+#: image.php:81
+msgid ""
+"Trackbacks are closed, but you can <a class=\"comment-link\" href=\"#respond"
+"\" title=\"Post a comment\">post a comment</a>."
+msgstr ""
+
+#: image.php:83
+msgid "Both comments and trackbacks are currently closed."
+msgstr ""
+
+#: search.php:11
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php:17
+msgid "Nothing Found"
+msgstr ""
+
+#: search.php:20
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: comments.php:26
+msgid "%s <span class=\"says\">says:</span>"
+msgstr ""
+
+#: comments.php:29
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: comments.php:36
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: comments.php:38 comments.php:53
+msgid "(Edit)"
+msgstr ""
+
+#: comments.php:53
+msgid "Pingback:"
+msgstr ""
+
+#: comments.php:62
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:71
+msgid "One Response to %2$s"
+msgid_plural "%1$s Responses to %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:77 comments.php:89
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:78 comments.php:90
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:79 comments.php:91
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:103
+msgid "Comments are closed."
+msgstr ""
+
+#: author.php:12
+msgid "Author Archives: <span class=\"vcard\">%s</span>"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "JustCSS"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://pross.org.uk/2010/07/25/justcss/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Pure HTML5 theme with custom colours using css3 originally based on Toolbox. "
+"Includes support for aside and gallery post-formats."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Simon Prosser"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://pross.org.uk"
+msgstr ""
+
+#. Tags of the plugin/theme
+msgid ""
+"translation-ready, microformats, rtl-language-support, two-columns, flexible-"
+"width, threaded-comments, theme-options, custom-menu, sticky-post, custom-"
+"background, custom-colors, custom-menu, editor-style"
+msgstr ""
