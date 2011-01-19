@@ -1,4 +1,4 @@
-<?php 
+<?php
 add_action('admin_init', 'jcss_options_init_fn' );
 add_action('admin_menu', 'jcss_options_add_page_fn');
 add_action('init', 'add_defaults_fn');
@@ -47,8 +47,8 @@ function options_page_fn() {
 
 // Validate user data for some/all of your input fields
 function jcss_options_validate($input) {
-	$input['corner'] = (int) $input['corner'];	
-	$input['width'] = (int) $input['width'];
+	$input['corner'] = ( (int) $input['corner'] && $input['corner'] > 0 && $input['corner'] < 25 ) ? $input['corner'] : 8;
+	$input['width'] = ( (int) $input['width'] && $input['width'] > 720 && $input['width'] < 2000 ) ? $input['width'] : 1024;
 	$input['nav'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['nav'], $out ) ) ? $out[0] : 'eee';
 	$input['widget'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['widget'], $out ) ) ? $out[0] : 'eee';
 	$input['sticky'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['sticky'], $out ) ) ? $out[0] : 'eee';
@@ -148,7 +148,7 @@ function setting_width_fn() {
 
 function setting_reset_fn() {
 	$options = get_option('jcss_options');
-$checked = ( isset( $options['reset']) ) ? ' checked="checked" ' : '';
+	$checked = ( isset( $options['reset']) ) ? ' checked="checked" ' : '';
 
 
 //	if( isset( $options['reset']) ) { $checked = ' checked="checked" '; }
@@ -157,7 +157,7 @@ $checked = ( isset( $options['reset']) ) ? ' checked="checked" ' : '';
 
 function add_defaults_fn() {
 	$tmp = get_option('jcss_options');
-    if ( ( isset( $tmp['reset'] ) && $tmp['reset'] == 'on' ) || ( !is_array( $tmp ) ) ) {
+	if ( ( isset( $tmp['reset'] ) && $tmp['reset'] == 'on' ) || ( !is_array( $tmp ) ) ) {
 		$arr = array("nav"=>"eee", "nav_col" => "JustCSS", "widget" => "eee", "sticky" => "eee", "bpo" => "No", "bypostauthor" => "eee", "even" => "eee", 'odd' => 'fcfcfc', 'aside' => 'f2f2f2', 'corner' => '8', 'brackets' => 'Yes', 'mainfont' => '000', 'width' => '1024');
 		update_option('jcss_options', $arr);
 	}
