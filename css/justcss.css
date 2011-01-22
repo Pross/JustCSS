@@ -164,6 +164,7 @@ margin:1em 0 0;
 
 .page-link {
 margin:0 0 1em;
+clear: both;
 }
 
 .error404 .widget {
