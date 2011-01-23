@@ -19,7 +19,7 @@
 					<h1 class="widget-title"><?php _e( 'Meta', 'justcss' ); ?></h1>
 					<ul>
 						<?php wp_register(); ?>
-						<?php wp_loginout(); ?>
+						<li><?php wp_loginout(); ?></li>
 						<?php wp_meta(); ?>
 					</ul>
 				</aside>
