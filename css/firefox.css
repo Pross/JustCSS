@@ -1,12 +1,3 @@
-/*#access ul ul {
--webkit-border-radius:15px;
--moz-border-radius:15px;
-border-radius:15px;
--webkit-box-shadow:0 3px 3px rgba(0,0,0,0.2);
--moz-box-shadow:0 3px 3px rgba(0,0,0,0.2);
-box-shadow:0 3px 3px rgba(0,0,0,0.2);
-}*/
-
 .shadow,
 .attachment img,
 .attachment-thumbnail,
@@ -27,4 +18,5 @@ box-shadow:3px 3px 4px #000;
 .gallery-caption {
 -webkit-border-radius:3px;
 -moz-border-radius:3px;
+border-radius:3px;
 }

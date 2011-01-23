@@ -31,6 +31,10 @@ These filters are to be used in your child theme `functions.php`
 
 == Changelog ==
 
+= 1.0.6 = 
+* More css fixes
+* Validate HTML5
+
 = 1.0.5 =
 * Clean up code fix aside.
 
