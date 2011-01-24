@@ -1,8 +1,10 @@
 @import url("html5reset.css");
+body {
+font-family: 'Molengo', serif;
+}
 #page {
 display:block;
 width:1024px;
-font-family:Arial,Helvetica,Sans-Serif;
 margin:0 auto;
 }
 
@@ -405,7 +407,6 @@ list-style:none;
 }
 
 #justcss_footer_div {
-font-family:Arial,Helvetica,Sans-Serif;
 margin:0 auto;
 }
 
