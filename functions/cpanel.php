@@ -7,6 +7,7 @@ function jcss_options_init_fn(){
 	wp_enqueue_script( 'jscolor' );
 	register_setting('jcss_options', 'jcss_options', 'jcss_options_validate' );
 	add_settings_section('main_section', 'Main Settings', 'section_text_fn', __FILE__);
+	add_settings_field('main_font', 'Google Font', 'setting_font_dropdown_fn', __FILE__, 'main_section');
 	add_settings_field('jcss_nav', 'Navbar Colour', 'setting_nav_fn', __FILE__, 'main_section');
 	add_settings_field('jcss_nav_col', 'Select menu color scheme', 'setting_nav_dropdown_fn', __FILE__, 'main_section');
 	add_settings_field('jcss_widget', 'Widget Colour', 'setting_widget_fn', __FILE__, 'main_section');
@@ -83,6 +84,22 @@ function  setting_nav_dropdown_fn() {
 	echo "</select>";
 }
 
+function  setting_font_dropdown_fn() {
+	$options = get_option('jcss_options');
+	$items = array("Molengo", "Cantarell", "Arimo", "puritan", "Crimson Text", "Droid Sans");
+	echo "<select id='main_font' name='jcss_options[main_font]'>";
+	foreach( $items as $item ) {
+		$selected = ($options['main_font']==$item) ? 'selected="selected"' : '';
+		echo "<option value='$item' $selected>$item</option>";
+	}
+	echo "</select>";
+}
+
+
+
+
+
+
 function setting_widget_fn() {
 	$options = get_option('jcss_options');
 	echo "<input class='color {hash:false}' name='jcss_options[widget]' size='40' type='text' value='{$options['widget']}' />";
@@ -158,7 +175,7 @@ function setting_reset_fn() {
 function add_defaults_fn() {
 	$tmp = get_option('jcss_options');
 	if ( ( isset( $tmp['reset'] ) && $tmp['reset'] == 'on' ) || ( !is_array( $tmp ) ) ) {
-		$arr = array("nav"=>"eee", "nav_col" => "JustCSS", "widget" => "eee", "sticky" => "eee", "bpo" => "No", "bypostauthor" => "eee", "even" => "eee", 'odd' => 'fcfcfc', 'aside' => 'f2f2f2', 'corner' => '8', 'brackets' => 'Yes', 'mainfont' => '000', 'width' => '1024');
+		$arr = array("nav"=>"eee", "nav_col" => "JustCSS", "widget" => "eee", "sticky" => "eee", "bpo" => "No", "bypostauthor" => "eee", "even" => "eee", 'odd' => 'fcfcfc', 'aside' => 'f2f2f2', 'corner' => '8', 'brackets' => 'Yes', 'mainfont' => '000', 'width' => '1024', 'main_font' => 'Canterell');
 		update_option('jcss_options', $arr);
 	}
 }

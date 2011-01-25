@@ -20,8 +20,9 @@ add_action('wp_head', 'jcss_do_css');
 
 function jcss_do_css() {
 	$options = get_option('jcss_options');
-	echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Molengo:regular">';
+	echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=' . $options['main_font'] . '">';
 	echo "<style type=\"text/css\">";
+	echo "body { font-family: '{$options['main_font']}', serif;}";
 	if ($options['brackets'] === 'Yes') echo "#site-title a:before{content:'{'} #site-title a:after{content:'}'}";
 
 	if ($options['bpo'] === 'Yes') echo ".bypostauthor { background-color: #" . $options['bypostauthor'] . '!important}';
