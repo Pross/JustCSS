@@ -7,6 +7,7 @@ function jcss_options_init_fn(){
 	wp_enqueue_script( 'jscolor' );
 	register_setting( 'jcss_options', 'jcss_options', 'jcss_options_validate' );
 	add_settings_section( 'main_section', 'Main Settings', 'section_text_fn', __FILE__ );
+	add_settings_field( 'jcss_google_fonts', 'Enable Google fonts', 'setting_font_enable', __FILE__, 'main_section' );
 	add_settings_field( 'main_font', 'Google Font', 'setting_font_dropdown_fn', __FILE__, 'main_section' );
 	add_settings_field( 'jcss_nav', 'Navbar Colour', 'setting_nav_fn', __FILE__, 'main_section' );
 	add_settings_field( 'jcss_nav_col', 'Select menu color scheme', 'setting_nav_dropdown_fn', __FILE__, 'main_section' );
@@ -70,6 +71,7 @@ function jcss_options_validate($input) {
 	$input['even'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['even'], $out ) ) ? $out[0] : 'eee';
 	$input['aside'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['aside'], $out ) ) ? $out[0] : 'f2f2f2';
 	$input['mainfont'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['mainfont'], $out ) ) ? $out[0] : '000';
+	$input['main_font'] = ( $input['main_font'] ) ? $input['main_font'] : 'Cantarell';
 	return $input; // return validated input
 }
 // ************************************************************************************************************
@@ -85,7 +87,7 @@ function setting_nav_fn() {
 	echo "<input class='color {hash:false}' id='jcss_nav' name='jcss_options[nav]' size='40' type='text' value='{$options['nav']}' />";
 }
 
-function  setting_nav_dropdown_fn() {
+function setting_nav_dropdown_fn() {
 	$options = get_option('jcss_options');
 	$items = array( "JustCSS", "Toolbox" );
 	echo "<select id='nav_col' name='jcss_options[nav_col]'>";
@@ -96,21 +98,24 @@ function  setting_nav_dropdown_fn() {
 	echo "</select>";
 }
 
-function  setting_font_dropdown_fn() {
+function setting_font_enable() {
 	$options = get_option('jcss_options');
-	$items = jcss_google_fonts();
-	echo "<select style='font-family: {$options['main_font']};font-size:14px' id='main_font' name='jcss_options[main_font]'>";
-	foreach( $items as $item ) {
-		$selected = ( $options['main_font'] == $item ) ? 'selected="selected"' : '';
-		echo "<option style='font-family: $item;font-size:18px' value='$item' $selected>$item</option>";
-	}
-	echo "</select>";
+	$checked = ( isset( $options['jcss_google_fonts'] ) ) ? ' checked="checked" ' : '';
+	echo "<input ".$checked." id='reset' name='jcss_options[jcss_google_fonts]' type='checkbox' /> Enable";
 }
 
 
-
-
-
+function setting_font_dropdown_fn() {
+	$options = get_option('jcss_options');
+	$disabled = ( !isset( $options['jcss_google_fonts'] ) ) ? 'disabled' : '';
+	$items = jcss_google_fonts();
+	echo "<select style='font-family: {$options['main_font']};font-size:14px' id='main_font' name='jcss_options[main_font]'>";
+	foreach( $items as $item ) {
+		$selected = ( $options['main_font'] === $item ) ? 'selected="selected"' : '';
+		echo "<option style='font-family: $item;font-size:18px' value='$item' $selected $disabled>$item</option>";
+	}
+	echo "</select>";
+}
 
 function setting_widget_fn() {
 	$options = get_option('jcss_options');
@@ -178,16 +183,13 @@ function setting_width_fn() {
 function setting_reset_fn() {
 	$options = get_option('jcss_options');
 	$checked = ( isset( $options['reset'] ) ) ? ' checked="checked" ' : '';
-
-
-//	if( isset( $options['reset']) ) { $checked = ' checked="checked" '; }
 	echo "<input ".$checked." id='reset' name='jcss_options[reset]' type='checkbox' />";
 }
 
 function add_defaults_fn() {
 	$tmp = get_option('jcss_options');
 	if ( ( isset( $tmp['reset'] ) && $tmp['reset'] == 'on' ) || ( !is_array( $tmp ) ) ) {
-		$arr = array("nav"=>"eee", "nav_col" => "JustCSS", "widget" => "eee", "sticky" => "eee", "bpo" => "No", "bypostauthor" => "eee", "even" => "eee", 'odd' => 'fcfcfc', 'aside' => 'f2f2f2', 'corner' => '8', 'brackets' => 'Yes', 'mainfont' => '000', 'width' => '1024', 'main_font' => 'Canterell');
+		$arr = array("nav"=>"eee", "nav_col" => "JustCSS", "widget" => "eee", "sticky" => "eee", "bpo" => "No", "bypostauthor" => "eee", "even" => "eee", 'odd' => 'fcfcfc', 'aside' => 'f2f2f2', 'corner' => '8', 'brackets' => 'Yes', 'mainfont' => '000', 'width' => '1024', 'main_font' => 'Cantarell', 'jcss_google_fonts' => ' checked="checked" ' );
 		update_option( 'jcss_options', $arr );
 	}
 }
