@@ -31,6 +31,10 @@ These filters are to be used in your child theme `functions.php`
 
 == Changelog ==
 
+= 1.0.7 =
+* Added google fonts API
+* `jcss_google_fonts` filter added with example in functions.php.
+
 = 1.0.6 = 
 * More css fixes
 * Validate HTML5
