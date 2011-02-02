@@ -7,7 +7,7 @@
 	</div><!-- #main -->
 <footer id="colophon" role="contentinfo">
 			<div id="site-generator">
-<?php do_action('jcss_footer'); ?>
+<?php do_action('justcss_footer'); ?>
 			</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
