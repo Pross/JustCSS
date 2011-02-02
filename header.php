@@ -34,7 +34,7 @@
 				<h1 id="site-title"><span><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span></h1>
 				<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 			</hgroup>
-			<?php do_action('jcss_header_before_nav'); ?>
+			<?php do_action('justcss_header_before_nav'); ?>
 			<nav id="access" role="navigation">
 				<h1 class="section-heading"><?php _e( 'Main menu', 'justcss' ); ?></h1>
 				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'justcss' ); ?>"><?php _e( 'Skip to content', 'justcss' );
@@ -42,6 +42,6 @@
 
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</nav><!-- #access -->
-		 <?php do_action('jcss_header_after_nav'); ?>
+		 <?php do_action('justcss_header_after_nav'); ?>
 	</header><!-- #branding -->
 	<div id="main">

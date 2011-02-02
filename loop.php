@@ -4,7 +4,7 @@
  * @subpackage JustCSS
  */
 ?>
-<?php do_action( 'jcss_loop_start' ); ?>
+<?php do_action( 'justcss_loop_start' ); ?>
 <?php /* Display navigation to next/previous pages when applicable */ ?>
 <?php if ( $wp_query->max_num_pages > 1 ) : ?>
 	<nav id="nav-above">
@@ -33,4 +33,4 @@ endwhile; ?>
 		<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'justcss' ) ); ?></div>
 	</nav><!-- #nav-below -->
 <?php endif; ?>
-<?php do_action( 'jcss_loop_end' ); ?>
+<?php do_action( 'justcss_loop_end' ); ?>

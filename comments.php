@@ -3,17 +3,17 @@
  * @package WordPress
  * @subpackage JustCSS
  */
-if ( ! function_exists( 'jcss_comment' ) ) :
+if ( ! function_exists( 'justcss_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  *
  * To override this walker in a child theme without modifying the comments template
- * simply create your own jcss_comment(), and that function will be used instead.
+ * simply create your own justcss_comment(), and that function will be used instead.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  *
  */
-function jcss_comment( $comment, $args, $depth ) {
+function justcss_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case '' :
@@ -55,7 +55,7 @@ function jcss_comment( $comment, $args, $depth ) {
 			break;
 	endswitch;
 }
-endif; // ends check for jcss_comment()
+endif; // ends check for justcss_comment()
 ?>
 	<div id="comments">
 	<?php if ( post_password_required() ) : ?>
@@ -79,11 +79,11 @@ endif; // ends check for jcss_comment()
 			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'justcss' ) ); ?></div>
 		</nav>
 		<?php endif; // check for comment navigation ?>
-		<?php do_action( 'jcss_before_comments' ); ?>
+		<?php do_action( 'justcss_before_comments' ); ?>
 		<ol class="commentlist">
-			<?php wp_list_comments( array( 'callback' => 'jcss_comment' ) ); ?>
+			<?php wp_list_comments( array( 'callback' => 'justcss_comment' ) ); ?>
 		</ol>
-		<?php do_action( 'jcss_after_comments' ); ?>
+		<?php do_action( 'justcss_after_comments' ); ?>
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
 		<nav id="comment-nav-below">
 			<h1 class="section-heading"><?php _e( 'Comment navigation', 'justcss' ); ?></h1>

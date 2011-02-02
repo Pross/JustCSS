@@ -29,9 +29,9 @@ get_header(); ?>
 						</div><!-- .entry-meta -->
 					</header><!-- .entry-header -->
 					<div class="entry-content">
-					<?php do_action('jcss_single_before_content'); ?>
+					<?php do_action('justcss_single_before_content'); ?>
 						<?php the_content(); ?>
-					<?php do_action('jcss_single_after_content'); ?>
+					<?php do_action('justcss_single_after_content'); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'justcss' ), 'after' => '</div>' ) ); ?>
 					</div><!-- .entry-content -->
 					<footer class="entry-meta">

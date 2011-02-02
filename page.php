@@ -5,7 +5,7 @@
  */
 get_header(); ?>
 		<div id="primary">
-		  <?php do_action( 'jcss_hook_page_before_content' ); ?>
+		  <?php do_action( 'justcss_hook_page_before_content' ); ?>
 			<div id="content" role="main">
 				<?php the_post(); ?>
 
@@ -23,7 +23,7 @@ get_header(); ?>
 				</article><!-- #post-<?php the_ID(); ?> -->
 				<?php comments_template( '', true ); ?>
 			</div><!-- #content -->
-		    <?php do_action( 'jcss_hook_page_after_content' ); ?>
+		    <?php do_action( 'justcss_hook_page_after_content' ); ?>
 		</div><!-- #primary -->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
