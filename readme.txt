@@ -9,6 +9,10 @@ Pure HTML5 theme with custom colours using css3 originally based on Toolbox. Inc
 == Notes ==
 = The following actions/filters are included =
 These filters are to be used in your child theme `functions.php`
+
+= cpanel.php
+* `justcss_google_fonts` filter ( see `functions.php` for example )
+
 = header.php =
 * `jcss_header_before_nav` action
 * `jcss_header_after_nav` action
@@ -30,6 +34,9 @@ These filters are to be used in your child theme `functions.php`
 
 
 == Changelog ==
+
+= 1.0.8 =
+* rename all functions/options justcss not jcss.
 
 = 1.0.7 =
 * Added google fonts API

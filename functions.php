@@ -1,8 +1,8 @@
 <?php
 
-require_once( 'functions/justcss_functions.php' );
-require_once( 'functions/cpanel.php' );
-require_once( 'functions/filters.php' );
+require( 'functions/justcss_functions.php' );
+require( 'functions/cpanel.php' );
+require( 'functions/filters.php' );
 
 // Add a custom footer.
 add_filter('jcss_footer_filter', 'footer_add_version');

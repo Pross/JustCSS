@@ -1,5 +1,5 @@
 <?php
-add_action( 'jcss_footer', 'jcss_footer_default' );
+add_action( 'justcss_footer', 'justcss_footer_default' );
 
 $data = get_theme_data( TEMPLATEPATH . '/style.css' );
 define( 'JCSS_VERSION', $data[ 'Version' ] );
@@ -13,27 +13,34 @@ load_theme_textdomain( 'justcss', TEMPLATEPATH . '/languages' );
 
 add_filter( 'the_content', 'add_thumbs' );
 add_action( 'wp_head', 'justcss_css', 1 );
-add_action( 'init','show_bar', 1 );
+add_action( 'init', 'show_bar', 1 );
+add_action( 'init', 'justcss_loadoptions', 1 );
 add_image_size( 'random-thumb', 125, 125 );
 add_action( 'wp_head', 'ie_stuff' );
-add_action('wp_head', 'jcss_do_css');
+add_action('wp_head', 'justcss_do_css');
 
-function jcss_do_css() {
-	$options = get_option('jcss_options');
-	echo ( isset( $options['jcss_google_fonts'] ) && isset( $options['main_font'] ) ) ? '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=' . str_replace( ' ', '+', $options['main_font'] ) . '">' : '';
+function justcss_loadoptions() {
+
+global $justcss_options;
+	$justcss_options = get_option('justcss_options');
+}
+
+function justcss_do_css() {
+global $justcss_options;
+	echo ( isset( $justcss_options['justcss_google_fonts'] ) && isset( $justcss_options['main_font'] ) ) ? '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=' . str_replace( ' ', '+', $justcss_options['main_font'] ) . '">' : '';
 	echo "<style type=\"text/css\">";
-	echo ( isset( $options['jcss_google_fonts'] ) && isset( $options['main_font'] ) ) ? "body { font-family: '{$options['main_font']}', serif;}" : '';
-	if ($options['brackets'] === 'Yes') echo "#site-title a:before{content:'{'} #site-title a:after{content:'}'}";
+	echo ( isset( $justcss_options['justcss_google_fonts'] ) && isset( $justcss_options['main_font'] ) ) ? "body { font-family: '{$justcss_options['main_font']}', serif;}" : '';
+	if ($justcss_options['brackets'] === 'Yes') echo "#site-title a:before{content:'{'} #site-title a:after{content:'}'}";
 
-	if ($options['bpo'] === 'Yes') echo ".bypostauthor { background-color: #" . $options['bypostauthor'] . '!important}';
+	if ($justcss_options['bpo'] === 'Yes') echo ".bypostauthor { background-color: #" . $justcss_options['bypostauthor'] . '!important}';
 
-	if ($options['nav_col'] === 'JustCSS') echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background:#333; color:#fff; } #access ul ul a:hover { background:#000; }";
+	if ($justcss_options['nav_col'] === 'JustCSS') echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background:#333; color:#fff; } #access ul ul a:hover { background:#000; }";
 
-	if ($options['nav_col'] === 'Toolbox') echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background: #dedede; } #access ul ul a:hover { background: #cecece; }";
+	if ($justcss_options['nav_col'] === 'Toolbox') echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background: #dedede; } #access ul ul a:hover { background: #cecece; }";
 
 // Variables should be added with {} brackets
 echo <<<CSS
-#site-title a, .nav-next a, .nav-previous a, .entry-meta a, a, #page { color: #{$options['mainfont']}; } #access { background-color: #{$options['nav']};} .widget-area { background-color: #{$options['widget']}; } ol.commentlist li.even { background-color: #{$options['even']}; } ol.commentlist li.odd { background-color: #{$options['odd']}; } #page, #justcss_footer_div { width: {$options['width']}px; } .sticky { background-color: #{$options['sticky']}; -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; } ol.commentlist li.odd, ol.commentlist li.even { -webkit-border-radius: {$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius: {$options['corner']}px; } .widget-area { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; } #access { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px;} .format-aside { -webkit-border-radius:{$options['corner']}px; -moz-border-radius:{$options['corner']}px; border-radius:{$options['corner']}px; background-color: #{$options['aside']};}
+#site-title a, .nav-next a, .nav-previous a, .entry-meta a, a, #page { color: #{$justcss_options['mainfont']}; } #access { background-color: #{$justcss_options['nav']};} .widget-area { background-color: #{$justcss_options['widget']}; } ol.commentlist li.even { background-color: #{$justcss_options['even']}; } ol.commentlist li.odd { background-color: #{$justcss_options['odd']}; } #page, #justcss_footer_div { width: {$justcss_options['width']}px; } .sticky { background-color: #{$justcss_options['sticky']}; -webkit-border-radius:{$justcss_options['corner']}px; -moz-border-radius:{$justcss_options['corner']}px; border-radius:{$justcss_options['corner']}px; } ol.commentlist li.odd, ol.commentlist li.even { -webkit-border-radius: {$justcss_options['corner']}px; -moz-border-radius:{$justcss_options['corner']}px; border-radius: {$justcss_options['corner']}px; } .widget-area { -webkit-border-radius:{$justcss_options['corner']}px; -moz-border-radius:{$justcss_options['corner']}px; border-radius:{$justcss_options['corner']}px; } #access { -webkit-border-radius:{$justcss_options['corner']}px; -moz-border-radius:{$justcss_options['corner']}px; border-radius:{$justcss_options['corner']}px;} .format-aside { -webkit-border-radius:{$justcss_options['corner']}px; -moz-border-radius:{$justcss_options['corner']}px; border-radius:{$justcss_options['corner']}px; background-color: #{$justcss_options['aside']};}
 CSS;
 //More php can go here
 echo <<<CSS
@@ -66,16 +73,16 @@ register_nav_menus( array(
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  */
-function jcss_page_menu_args($args) {
+function justcss_page_menu_args($args) {
 	$args[ 'show_home' ] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'jcss_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'justcss_page_menu_args' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function jcss_widgets_init() {
+function justcss_widgets_init() {
 	register_sidebar( array (
 		'name' => __( 'Sidebar 1', 'justcss' ),
 		'id' => 'sidebar-1',
@@ -94,7 +101,7 @@ function jcss_widgets_init() {
 		'after_title' => '</h1>',
 	) );
 }
-add_action( 'init', 'jcss_widgets_init' );
+add_action( 'init', 'justcss_widgets_init' );
 
 function add_thumbs( $content ) {
 	the_post_thumbnail( 'thumbnail', array( 'class' => 'alignright shadow' ) );
