@@ -52,7 +52,7 @@ function options_page_fn() {
 		<?php settings_fields( 'justcss_options' ); ?>
 		<?php do_settings_sections( __FILE__ ); ?>
 		<p class="submit">
-			<input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Changes' ); ?>" />
+			<input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Changes', 'justcss' ); ?>" />
 		</p>
 		</form>
 	</div>

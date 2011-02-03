@@ -15,5 +15,5 @@ function footer_add_version( $footer ) {
 add_filter( 'justcss_google_fonts', 'add_my_font' );
 function add_my_font( $fonts ) {
 	 $fonts[] = 'Coming Soon';
-	  return $fonts;
+	 return $fonts;
 }
