@@ -37,6 +37,7 @@ These filters are to be used in your child theme `functions.php`
 
 = 1.0.8 =
 * rename all functions/options justcss not jcss.
+* reorder admin section.
 
 = 1.0.7 =
 * Added google fonts API

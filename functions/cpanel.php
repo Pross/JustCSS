@@ -6,23 +6,24 @@ function justcss_options_init_fn(){
 	wp_register_script( 'jscolor', get_template_directory_uri() . '/functions/jscolor/jscolor.js' );
 	wp_enqueue_script( 'jscolor' );
 	register_setting( 'justcss_options', 'justcss_options', 'justcss_options_validate' );
-	add_settings_section( 'main_section', 'Main Settings', 'section_text_fn', __FILE__ );
+	add_settings_section( 'main_section', 'Theme Settings', 'section_text_fn', __FILE__ );
+	add_settings_section( 'colours_section', 'Theme Colours', 'section_text_fn', __FILE__ );
 	add_settings_field( 'justcss_google_fonts', 'Enable Google fonts', 'setting_font_enable', __FILE__, 'main_section' );
 	add_settings_field( 'main_font', 'Google Font', 'setting_font_dropdown_fn', __FILE__, 'main_section' );
-	add_settings_field( 'justcss_nav', 'Navbar Colour', 'setting_nav_fn', __FILE__, 'main_section' );
 	add_settings_field( 'justcss_nav_col', 'Select menu color scheme', 'setting_nav_dropdown_fn', __FILE__, 'main_section' );
-	add_settings_field( 'justcss_widget', 'Widget Colour', 'setting_widget_fn', __FILE__, 'main_section' );
-	add_settings_field( 'justcss_sticky', 'Sticky Colour', 'setting_sticky_fn', __FILE__, 'main_section' );
 	add_settings_field( 'justcss_bpo_radio', 'Enable bypostauthor css', 'setting_bpo_enable_fn', __FILE__, 'main_section' );
-	add_settings_field( 'justcss_bypostauthor', 'Colour for .bypostauthor', 'setting_bypostauthor_fn', __FILE__, 'main_section' );
-	add_settings_field( 'justcss_comment_even', 'Comments even', 'setting_comment_even_fn', __FILE__, 'main_section' );
-	add_settings_field( 'justcss_comment_odd', 'Comments odd', 'setting_comment_odd_fn', __FILE__, 'main_section' );
-	add_settings_field( 'justcss_aside', 'Aside Colour', 'setting_aside_fn', __FILE__, 'main_section' );
 	add_settings_field( 'justcss_corners', 'Corner radius', 'setting_corner_fn', __FILE__, 'main_section' );
 	add_settings_field( 'justcss_brackets', 'Enable {} around blog title', 'setting_brackets_fn', __FILE__, 'main_section' );
-	add_settings_field( 'justcss_mainfont', 'Primary font colour', 'setting_mainfont_fn', __FILE__, 'main_section' );
 	add_settings_field( 'justcss_width', 'Theme width px', 'setting_width_fn', __FILE__, 'main_section' );
-	add_settings_field( 'justcss_reset', 'Restore Defaults?', 'setting_reset_fn', __FILE__, 'main_section' );
+	add_settings_field( 'justcss_nav', 'Navbar Colour', 'setting_nav_fn', __FILE__, 'colours_section' );
+	add_settings_field( 'justcss_widget', 'Widget Colour', 'setting_widget_fn', __FILE__, 'colours_section' );
+	add_settings_field( 'justcss_sticky', 'Sticky Colour', 'setting_sticky_fn', __FILE__, 'colours_section' );
+	add_settings_field( 'justcss_bypostauthor', 'Colour for .bypostauthor', 'setting_bypostauthor_fn', __FILE__, 'colours_section' );
+	add_settings_field( 'justcss_comment_even', 'Comments even', 'setting_comment_even_fn', __FILE__, 'colours_section' );
+	add_settings_field( 'justcss_comment_odd', 'Comments odd', 'setting_comment_odd_fn', __FILE__, 'colours_section' );
+	add_settings_field( 'justcss_aside', 'Aside Colour', 'setting_aside_fn', __FILE__, 'colours_section' );
+	add_settings_field( 'justcss_mainfont', 'Primary font colour', 'setting_mainfont_fn', __FILE__, 'colours_section' );
+	add_settings_field( 'justcss_reset', 'Restore Defaults?', 'setting_reset_fn', __FILE__, 'colours_section' );
 
 	foreach( justcss_google_fonts() as $font ) {
 		wp_register_style( $font, 'http://fonts.googleapis.com/css?family=' . $font );
@@ -79,7 +80,7 @@ function justcss_options_validate($input) {
 // Callback functions
 
 function  section_text_fn() {
-//	echo '<p>The main JustCSS options.</p>';
+	// we do nothing here
 }
 
 function setting_nav_fn() {
