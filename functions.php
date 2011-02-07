@@ -2,9 +2,9 @@
 /**
  * load the theme function files
  */
-load_template( TEMPLATEPATH . '/functions/justcss_functions.php' );
-load_template( TEMPLATEPATH . '/functions/cpanel.php' );
-load_template( TEMPLATEPATH . '/functions/filters.php' );
+load_template( get_template_directory(). '/functions/justcss_functions.php' );
+load_template( get_template_directory() . '/functions/cpanel.php' );
+load_template( get_template_directory() . '/functions/filters.php' );
 
 /**
  * Add a custom footer with our justcss_footer_filter

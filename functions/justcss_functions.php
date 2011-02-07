@@ -21,6 +21,7 @@ add_action( 'init', 'justcss_loadoptions', 1 );
 add_action( 'wp_head', 'ie_stuff' );
 add_action('wp_head', 'justcss_do_css');
 add_action( 'justcss_footer', 'justcss_footer_default' );
+add_action('admin_bar_menu', 'justcss_theme_options_link', 1000);
 
 /**
  * populate the options array and define the version
@@ -128,4 +129,14 @@ function ie_stuff() {
 	echo "\r\n" . '<style type="text/css" media="screen">#access, .comment, .widget-area { behavior: url("'. get_template_directory_uri() . '/css/PIE.php");}</style>';
 	echo "\r\n" . '<script src="' . get_template_directory_uri() . '/css/html5.js" type="text/javascript"></script>';
 	echo "\r\n" . '<![endif]-->' . "\r\n";
+}
+
+/**
+ * Add Theme Options to Admin Bar
+ */
+function justcss_theme_options_link() {
+	global $wp_admin_bar, $wpdb;
+	if ( !is_super_admin() || !is_admin_bar_showing() )
+		return;
+	$wp_admin_bar->add_menu( array( 'parent' => 'appearance', 'title' => __( 'JustCSS Options', 'justcss' ), 'href' => get_admin_url() . 'themes.php?page=cpanel.php' ) );
 }
