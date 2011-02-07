@@ -1,7 +1,14 @@
 <?php
+/**
+ * load the actions
+ */
 add_action( 'admin_init', 'justcss_options_init_fn' );
 add_action( 'admin_menu', 'justcss_options_add_page_fn' );
 add_action( 'init', 'add_defaults_fn' );
+
+/**
+ * setup the options page
+ */
 function justcss_options_init_fn(){
 	wp_register_script( 'jscolor', get_template_directory_uri() . '/functions/jscolor/jscolor.js' );
 	wp_enqueue_script( 'jscolor' );
@@ -28,22 +35,27 @@ function justcss_options_init_fn(){
 	foreach( justcss_google_fonts() as $font ) {
 		wp_register_style( $font, 'http://fonts.googleapis.com/css?family=' . $font );
 		wp_enqueue_style( $font );
-		}
+	}
 }
 
-// Enable google font previews
-
+/**
+ * Enable google font previews
+ */
 function justcss_google_fonts() {
 	$fonts = array("Molengo", "Cantarell", "Arimo", "puritan", "Crimson Text", "Droid Sans" );
 	return( apply_filters( 'justcss_google_fonts', $fonts ) );
 }
 
-// Add sub page to the Settings Menu
+/**
+ * Add sub page to the Settings Menu
+ */
 function justcss_options_add_page_fn() {
 	add_theme_page( 'JustCSS Options', 'JustCSS Options', 'edit_theme_options', basename( __FILE__ ), 'options_page_fn' );
 }
 
-// Display the admin options page
+/**
+ * Display the admin options page
+ */
 function options_page_fn() {
 ?>
 	<div class="wrap">
@@ -60,7 +72,9 @@ function options_page_fn() {
 <?php
 }
 
-// Validate user data for some/all of your input fields
+/**
+ * Validate user data 
+ */
 function justcss_options_validate($input) {
 	$input['corner'] = ( ( int ) $input['corner'] && $input['corner'] > 0 && $input['corner'] < 25 ) ? $input['corner'] : 8;
 	$input['width'] = ( ( int ) $input['width'] && $input['width'] > 720 && $input['width'] < 2000 ) ? $input['width'] : 1024;
@@ -73,12 +87,12 @@ function justcss_options_validate($input) {
 	$input['aside'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['aside'], $out ) ) ? $out[0] : 'f2f2f2';
 	$input['mainfont'] = ( preg_match( '/^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/', $input['mainfont'], $out ) ) ? $out[0] : '000';
 	$input['main_font'] = ( $input['main_font'] ) ? $input['main_font'] : 'Cantarell';
-	return $input; // return validated input
+	return $input; 
 }
-// ************************************************************************************************************
 
-// Callback functions
-
+/**
+ * Callback functions
+ */
 function  section_text_fn() {
 	// we do nothing here
 }

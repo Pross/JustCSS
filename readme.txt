@@ -14,26 +14,30 @@ These filters are to be used in your child theme `functions.php`
 * `justcss_google_fonts` filter ( see `functions.php` for example )
 
 = header.php =
-* `jcss_header_before_nav` action
-* `jcss_header_after_nav` action
+* `justcss_header_before_nav` action
+* `justcss_header_after_nav` action
 
 = footer.php filter =
-* `jcss_footer_filter` filter ( see `functions.php` for example )
+* `justcss_footer_filter` filter ( see `functions.php` for example )
 
 = page.php =
-* `jcss_page_before_content` action
-* `jcss_page_after_content` action
+* `justcss_page_before_content` action
+* `justcss_page_after_content` action
 
 = single.php =
-* `jcss_single_before_content` action
-* `jcss_single_after_content` action
+* `justcss_single_before_content` action
+* `justcss_single_after_content` action
 
 = loop.php =
-* `jcss_loop_start` action
-* `jcss_loop_start` action
+* `justcss_loop_start` action
+* `justcss_loop_start` action
 
 
 == Changelog ==
+
+= 1.0.9 =
+* Document functions.
+* Use load_template instead of require.
 
 = 1.0.8 =
 * rename all functions/options justcss not jcss.
@@ -41,7 +45,7 @@ These filters are to be used in your child theme `functions.php`
 
 = 1.0.7 =
 * Added google fonts API
-* `jcss_google_fonts` filter added with example in functions.php.
+* `justcss_google_fonts` filter added with example in functions.php.
 
 = 1.0.6 = 
 * More css fixes
@@ -72,19 +76,19 @@ These filters are to be used in your child theme `functions.php`
 = 0.8 =
 * Merged toolbox into theme.
 * Added example filter in `functions.php`.
-* Hook `jcss_header_before_nav` added.
-* Hook `jcss_header_after_nav` added.
-* Hook `jcss_loop_start` added.
-* Hook `jcss_loop_end` added.
-* Hook `jcss_page_before_content` added.
-* Hook `jcss_page_after_content` added.
+* Hook `justcss_header_before_nav` added.
+* Hook `justcss_header_after_nav` added.
+* Hook `justcss_loop_start` added.
+* Hook `justcss_loop_end` added.
+* Hook `justcss_page_before_content` added.
+* Hook `justcss_page_after_content` added.
 * Updated jscolor.
 
 = 0.7 =
 * Started adding filters prefixed user.
-* Filter `jcss_footer_filter` added.
-* Hook `jcss_single_before_content` added to single.php.
-* Hook `jcss_single_after_content` added to single.php.
+* Filter `justcss_footer_filter` added.
+* Hook `justcss_single_before_content` added to single.php.
+* Hook `justcss_single_after_content` added to single.php.
 * Added main fonts to `style.php` and added user selection in cp.
 = 0.6 =
 * Tested and released.

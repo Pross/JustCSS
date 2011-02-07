@@ -1,41 +1,48 @@
 <?php
-add_action( 'justcss_footer', 'justcss_footer_default' );
-
-$data = get_theme_data( TEMPLATEPATH . '/style.css' );
-define( 'JCSS_VERSION', $data[ 'Version' ] );
-
+/**
+ * Include all the theme support
+ */
 add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-formats', array( 'aside', 'gallery' ) );
 add_theme_support( 'post-thumbnails' );
 add_custom_background();
 add_editor_style( 'css/editor-style.css' );
+add_image_size( 'random-thumb', 125, 125 );
 load_theme_textdomain( 'justcss', TEMPLATEPATH . '/languages' );
 
+/**
+ * load the actions and filters
+ */
+add_filter( 'wp_page_menu_args', 'justcss_page_menu_args' );
 add_filter( 'the_content', 'add_thumbs' );
+add_action( 'init', 'justcss_widgets_init' );
 add_action( 'wp_head', 'justcss_css', 1 );
-add_action( 'init', 'show_bar', 1 );
 add_action( 'init', 'justcss_loadoptions', 1 );
-add_image_size( 'random-thumb', 125, 125 );
 add_action( 'wp_head', 'ie_stuff' );
 add_action('wp_head', 'justcss_do_css');
+add_action( 'justcss_footer', 'justcss_footer_default' );
 
+/**
+ * populate the options array and define the version
+ */
 function justcss_loadoptions() {
-
-global $justcss_options;
+	global $justcss_options;
 	$justcss_options = get_option('justcss_options');
+	$data = get_theme_data( TEMPLATEPATH . '/style.css' );
+	define( 'JCSS_VERSION', $data[ 'Version' ] );
 }
 
+/**
+ * create the custom css for the <head>
+ */
 function justcss_do_css() {
-global $justcss_options;
+	global $justcss_options;
 	echo ( isset( $justcss_options['justcss_google_fonts'] ) && isset( $justcss_options['main_font'] ) ) ? '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=' . str_replace( ' ', '+', $justcss_options['main_font'] ) . '">' : '';
 	echo "<style type=\"text/css\">";
 	echo ( isset( $justcss_options['justcss_google_fonts'] ) && isset( $justcss_options['main_font'] ) ) ? "body { font-family: '{$justcss_options['main_font']}', serif;}" : '';
 	if ($justcss_options['brackets'] === 'Yes') echo "#site-title a:before{content:'{'} #site-title a:after{content:'}'}";
-
 	if ($justcss_options['bpo'] === 'Yes') echo ".bypostauthor { background-color: #" . $justcss_options['bypostauthor'] . '!important}';
-
 	if ($justcss_options['nav_col'] === 'JustCSS') echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background:#333; color:#fff; } #access ul ul a:hover { background:#000; }";
-
 	if ($justcss_options['nav_col'] === 'Toolbox') echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background: #dedede; } #access ul ul a:hover { background: #cecece; }";
 
 // Variables should be added with {} brackets
@@ -47,15 +54,6 @@ echo <<<CSS
 CSS;
 echo "</style>\n";
 }
-
-/**
- * Make theme available for translation
- * Translations can be filed in the /languages/ directory
- */
-$locale = get_locale();
-$locale_file = TEMPLATEPATH . "/languages/$locale.php";
-if ( is_readable( $locale_file ) )
-	require_once( $locale_file );
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -77,7 +75,6 @@ function justcss_page_menu_args($args) {
 	$args[ 'show_home' ] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'justcss_page_menu_args' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
@@ -101,33 +98,34 @@ function justcss_widgets_init() {
 		'after_title' => '</h1>',
 	) );
 }
-add_action( 'init', 'justcss_widgets_init' );
 
+/**
+ * align post thumbnail to the right and apply shadow
+ */
 function add_thumbs( $content ) {
 	the_post_thumbnail( 'thumbnail', array( 'class' => 'alignright shadow' ) );
 	return $content;
 }
 
+/**
+ * enqueue css
+ */
 function justcss_css() {
 	wp_register_style( 'justcss-firefox', get_template_directory_uri() . '/css/firefox.css', false, JCSS_VERSION );
 	wp_register_style( 'justcss-ie', get_template_directory_uri() . '/css/ie.css', false, JCSS_VERSION );
 	wp_enqueue_style( 'html5reset', get_template_directory_uri() . '/css/html5reset.css', false, JCSS_VERSION );
 	wp_enqueue_style( 'justcss', get_template_directory_uri() . '/css/justcss.css', false, JCSS_VERSION );
 	wp_enqueue_style( 'justcss-firefox' );
-
 	if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' );
 }
 
+/**
+ * ie specific css
+ */
 function ie_stuff() {
 	wp_enqueue_style( 'justcss-ie' );
 	echo '<!--[if lt IE 9]>';
 	echo "\r\n" . '<style type="text/css" media="screen">#access, .comment, .widget-area { behavior: url("'. get_template_directory_uri() . '/css/PIE.php");}</style>';
 	echo "\r\n" . '<script src="' . get_template_directory_uri() . '/css/html5.js" type="text/javascript"></script>';
 	echo "\r\n" . '<![endif]-->' . "\r\n";
-}
-
-function show_bar() {
-	if ( isset( $_REQUEST[ 'nobar' ] ) && $_REQUEST[ 'nobar' ] == 'yes' ) {
-		 define( 'IFRAME_REQUEST', true );
-	}
 }
