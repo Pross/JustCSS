@@ -59,7 +59,7 @@ function justcss_options_add_page_fn() {
 function options_page_fn() {
 ?>
 	<div class="wrap">
-		<div class="icon32" id="icon-options-general"><br></div>
+		<div class="icon32" id="icon-options-general"><br /></div>
 		<h2>JustCSS Options Page</h2>
 		<form action="options.php" method="post">
 		<?php settings_fields( 'justcss_options' ); ?>
@@ -107,8 +107,7 @@ function setting_nav_dropdown_fn() {
 	$items = array( "JustCSS", "Toolbox" );
 	echo "<select id='nav_col' name='justcss_options[nav_col]'>";
 	foreach( $items as $item ) {
-		$selected = ( $options['nav_col'] == $item ) ? 'selected="selected"' : '';
-		echo "<option value='$item' $selected>$item</option>";
+		echo '<option value="' . $item . '"' . selected( $options['nav_col'], $item ) . '>' . $item . '</option>';
 	}
 	echo "</select>";
 }
@@ -122,12 +121,10 @@ function setting_font_enable() {
 
 function setting_font_dropdown_fn() {
 	$options = get_option('justcss_options');
-	$disabled = ( !isset( $options['justcss_google_fonts'] ) ) ? 'disabled' : '';
 	$items = justcss_google_fonts();
 	echo "<select $disabled style='font-family: {$options['main_font']};font-size:14px' id='main_font' name='justcss_options[main_font]'>";
 	foreach( $items as $item ) {
-		$selected = ( $options['main_font'] === $item ) ? 'selected="selected"' : '';
-		echo "<option style='font-family: $item;font-size:18px' value='$item' $selected $disabled>$item</option>";
+		echo "<option style='font-family: $item;font-size:18px' value='$item'" . selected( $options['main_font'], $item ) . disabled( !isset( $options['justcss_google_fonts'] ) ) . ">$item</option>";
 	}
 	echo "</select>";
 }
