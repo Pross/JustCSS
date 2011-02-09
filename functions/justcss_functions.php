@@ -112,11 +112,9 @@ function add_thumbs( $content ) {
  * enqueue css
  */
 function justcss_css() {
-	wp_register_style( 'justcss-firefox', get_template_directory_uri() . '/css/firefox.css', false, JCSS_VERSION );
 	wp_register_style( 'justcss-ie', get_template_directory_uri() . '/css/ie.css', false, JCSS_VERSION );
 	wp_enqueue_style( 'html5reset', get_template_directory_uri() . '/css/html5reset.css', false, JCSS_VERSION );
 	wp_enqueue_style( 'justcss', get_template_directory_uri() . '/css/justcss.css', false, JCSS_VERSION );
-	wp_enqueue_style( 'justcss-firefox' );
 	if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' );
 }
 
@@ -124,9 +122,11 @@ function justcss_css() {
  * ie specific css
  */
 function ie_stuff() {
+global $is_IE;
+if ( !$is_IE ) return;
 	wp_enqueue_style( 'justcss-ie' );
 	echo '<!--[if lt IE 9]>';
-	echo "\r\n" . '<style type="text/css" media="screen">#access, .comment, .widget-area { behavior: url("'. get_template_directory_uri() . '/css/PIE.php");}</style>';
+	echo "\r\n" . '<style type="text/css" media="screen">#access, .comment, .widget-area, .aside { behavior: url("'. get_template_directory_uri() . '/css/PIE.php");}</style>';
 	echo "\r\n" . '<script src="' . get_template_directory_uri() . '/css/html5.js" type="text/javascript"></script>';
 	echo "\r\n" . '<![endif]-->' . "\r\n";
 }

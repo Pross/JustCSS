@@ -1,4 +1,3 @@
-@import url("html5reset.css");
 #page {
 display:block;
 width:1024px;
@@ -518,4 +517,27 @@ margin-top: 28px;
 .wp-smiley {
 margin: 0px !important;
 padding: 0px !important;
+}
+
+.shadow,
+.attachment img,
+.attachment-thumbnail,
+.wp-caption img,
+.size-thumbnail,
+.size-full {
+-moz-box-shadow:3px 3px 4px #000;
+-webkit-box-shadow:3px 3px 4px #000;
+box-shadow:3px 3px 4px #000;
+}
+
+.nav-next a:hover,
+.nav-previous a:hover,
+.entry-meta a:hover,
+.edit-link,
+.edit-link a:hover,
+.wp-caption,
+.gallery-caption {
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
 }
