@@ -11,7 +11,7 @@ load_template( get_template_directory() . '/functions/filters.php' );
  */
 add_filter('justcss_footer_filter', 'footer_add_version');
 function footer_add_version( $footer ) {
-	$footer .= '<div class="justcss_footer_class"><span class="entry-meta"><a href="http://www.pross.org.uk/themes/">JustCSS</a></span> v' . JCSS_VERSION . ' by Pross</div>';
+	$footer .= '<div class="justcss_footer_class"><span class="entry-meta"><a href="http://pross.org.uk/2010/07/25/justcss/">JustCSS</a></span> v' . JCSS_VERSION . ' by Pross</div>';
 	return $footer;
 }
 

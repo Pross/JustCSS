@@ -114,17 +114,15 @@ function setting_nav_dropdown_fn() {
 
 function setting_font_enable() {
 	$options = get_option('justcss_options');
-	$checked = ( isset( $options['justcss_google_fonts'] ) ) ? ' checked="checked" ' : '';
-	echo "<input ".$checked." id='reset' name='justcss_options[justcss_google_fonts]' type='checkbox' /> Enable";
+	echo '<input ' . checked( $options['justcss_google_fonts'], '1' , false )   . ' value="1" id="enable" name="justcss_options[justcss_google_fonts]" type="checkbox" /> Enable';
 }
-
 
 function setting_font_dropdown_fn() {
 	$options = get_option('justcss_options');
 	$items = justcss_google_fonts();
-	echo "<select $disabled style='font-family: {$options['main_font']};font-size:14px' id='main_font' name='justcss_options[main_font]'>";
+	echo "<select style='font-family: {$options['main_font']};font-size:14px' id='main_font' name='justcss_options[main_font]'>";
 	foreach( $items as $item ) {
-		echo "<option style='font-family: $item;font-size:18px' value='$item'" . selected( $options['main_font'], $item ) . disabled( !isset( $options['justcss_google_fonts'] ) ) . ">$item</option>";
+		echo "<option style='font-family: $item;font-size:18px' value='$item'" . selected( $options['main_font'], $item ) . disabled( empty( $options['justcss_google_fonts'] ) ) . ">$item</option>";
 	}
 	echo "</select>";
 }
@@ -143,8 +141,7 @@ function setting_bpo_enable_fn() {
 	$options = get_option('justcss_options');
 	$items = array( "Yes", "No" );
 	foreach( $items as $item ) {
-		$checked = ($options['bpo'] == $item ) ? ' checked="checked" ' : '';
-		echo "<label><input ".$checked." value='$item' name='justcss_options[bpo]' type='radio' /> $item</label><br />";
+		echo "<label><input " . checked( $options['bpo'], $item, false ) . " value='$item' name='justcss_options[bpo]' type='radio' /> $item</label><br />";
 	}
 }
 
@@ -177,8 +174,7 @@ function setting_brackets_fn() {
 	$options = get_option('justcss_options');
 	$items = array( "Yes", "No" );
 	foreach( $items as $item ) {
-		$checked = ( $options['brackets'] == $item ) ? ' checked="checked" ' : '';
-		echo "<label><input ".$checked." value='$item' name='justcss_options[brackets]' type='radio' /> $item</label><br />";
+		echo "<label><input ". checked( $options['brackets'], $item, false ) . " value='$item' name='justcss_options[brackets]' type='radio' /> $item</label><br />";
 	}
 }
 
@@ -201,7 +197,7 @@ function setting_reset_fn() {
 function add_defaults_fn() {
 	$tmp = get_option('justcss_options');
 	if ( ( isset( $tmp['reset'] ) && $tmp['reset'] == 'on' ) || ( !is_array( $tmp ) ) ) {
-		$arr = array("nav"=>"eee", "nav_col" => "JustCSS", "widget" => "eee", "sticky" => "eee", "bpo" => "No", "bypostauthor" => "eee", "even" => "eee", 'odd' => 'fcfcfc', 'aside' => 'f2f2f2', 'corner' => '8', 'brackets' => 'Yes', 'mainfont' => '000', 'width' => '1024', 'main_font' => 'Cantarell', 'justcss_google_fonts' => ' checked="checked" ' );
+		$arr = array("nav"=>"eee", "nav_col" => "JustCSS", "widget" => "eee", "sticky" => "eee", "bpo" => "No", "bypostauthor" => "eee", "even" => "eee", 'odd' => 'fcfcfc', 'aside' => 'f2f2f2', 'corner' => '8', 'brackets' => 'Yes', 'mainfont' => '000', 'width' => '1024', 'main_font' => 'Cantarell', 'justcss_google_fonts' => '0' );
 		update_option( 'justcss_options', $arr );
 	}
 }

@@ -40,7 +40,7 @@ function justcss_do_css() {
 	global $justcss_options;
 	echo ( isset( $justcss_options['justcss_google_fonts'] ) && isset( $justcss_options['main_font'] ) ) ? '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=' . str_replace( ' ', '+', $justcss_options['main_font'] ) . '">' : '';
 	echo "<style type=\"text/css\">";
-	echo ( isset( $justcss_options['justcss_google_fonts'] ) && isset( $justcss_options['main_font'] ) ) ? "body { font-family: '{$justcss_options['main_font']}', serif;}" : '';
+	echo ( isset( $justcss_options['justcss_google_fonts'] ) && isset( $justcss_options['main_font'] ) ) ? "body { font-family: '{$justcss_options['main_font']}', serif;}" : 'body { font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans serif; }';
 	if ($justcss_options['brackets'] === 'Yes') echo "#site-title a:before{content:'{'} #site-title a:after{content:'}'}";
 	if ($justcss_options['bpo'] === 'Yes') echo ".bypostauthor { background-color: #" . $justcss_options['bypostauthor'] . '!important}';
 	if ($justcss_options['nav_col'] === 'JustCSS') echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background:#333; color:#fff; } #access ul ul a:hover { background:#000; }";
