@@ -335,7 +335,8 @@ padding:1px;
 }
 
 .entry-content p img {
-margin:5px 15px;
+margin-top:15px
+margin-bottom:15px;
 }
 
 .edit-link {
@@ -508,10 +509,6 @@ margin: .2em .5em .2em .1em;
 
 #commentform {
   width: 80%;
-}
-
-body.admin-bar {
-margin-top: 28px;
 }
 
 .wp-smiley {

@@ -14,24 +14,39 @@ load_theme_textdomain( 'justcss', TEMPLATEPATH . '/languages' );
  * load the actions and filters
  */
 add_filter( 'wp_page_menu_args', 'justcss_page_menu_args' );
-add_filter( 'the_content', 'add_thumbs' );
-add_action( 'init', 'justcss_widgets_init' );
-add_action( 'wp_head', 'justcss_css', 1 );
-add_action( 'init', 'justcss_loadoptions', 1 );
-add_action( 'wp_head', 'ie_stuff' );
-add_action('wp_head', 'justcss_do_css');
-add_action( 'justcss_footer', 'justcss_footer_default' );
-add_action('admin_bar_menu', 'justcss_theme_options_link', 1000);
+add_action( 'widgets_init', 'justcss_widgets_init' );
+add_action( 'template_redirect', 'justcss_load', 1 );
+
+
+
 
 /**
- * populate the options array and define the version
+ * populate the options array and load rest of the actions
  */
-function justcss_loadoptions() {
+function justcss_load() {
 	global $justcss_options;
 	$justcss_options = get_option('justcss_options');
 	$data = get_theme_data( TEMPLATEPATH . '/style.css' );
 	define( 'JCSS_VERSION', $data[ 'Version' ] );
+	add_filter( 'the_content', 'add_thumbs' );
+	add_action( 'wp_head', 'justcss_css', 1 );
+	add_action( 'wp_head', 'ie_stuff' );
+	add_action('wp_head', 'justcss_do_css');
+	add_action( 'justcss_footer', 'justcss_footer_default' );
+	add_action('admin_bar_menu', 'justcss_theme_options_link', 1000);
+	if ( file_exists( TEMPLATEPATH . '/img/logo.jpg' ) ) {
+		define( 'NO_HEADER_TEXT', true );
+		define( 'HEADER_TEXTCOLOR', '' );
+		define( 'HEADER_IMAGE', get_bloginfo('stylesheet_directory') . '/img/logo.jpg' );
+		add_custom_image_header( 'justcss_logo', null );
+	}
 }
+
+function justcss_logo() { 
+	echo '<style type="text/css">#site-title { background: url( ' . get_header_image() . '); } #site-title span { position:relative;z-index: -1;}</style>';
+}
+
+
 
 /**
  * create the custom css for the <head>
