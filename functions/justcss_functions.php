@@ -37,7 +37,7 @@ function justcss_load() {
 	if ( file_exists( TEMPLATEPATH . '/img/logo.jpg' ) ) {
 		define( 'NO_HEADER_TEXT', true );
 		define( 'HEADER_TEXTCOLOR', '' );
-		define( 'HEADER_IMAGE', get_bloginfo('stylesheet_directory') . '/img/logo.jpg' );
+		define( 'HEADER_IMAGE', get_stylesheet_directory_uri() . '/img/logo.jpg' );
 		add_custom_image_header( 'justcss_logo', null );
 	}
 }
