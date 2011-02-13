@@ -14,7 +14,7 @@ function justcss_options_init_fn(){
 	wp_enqueue_script( 'jscolor' );
 	register_setting( 'justcss_options', 'justcss_options', 'justcss_options_validate' );
 	add_settings_section( 'main_section', 'Theme Settings', 'section_text_fn', __FILE__ );
-	add_settings_section( 'colours_section', 'Theme Colours', 'section_text_fn', __FILE__ );
+	add_settings_section( 'colours_section', 'Theme Colours', 'section_text_blank', __FILE__ );
 	add_settings_field( 'justcss_google_fonts', 'Enable Google fonts', 'setting_font_enable', __FILE__, 'main_section' );
 	add_settings_field( 'main_font', 'Google Font', 'setting_font_dropdown_fn', __FILE__, 'main_section' );
 	add_settings_field( 'justcss_nav_col', 'Select menu color scheme', 'setting_nav_dropdown_fn', __FILE__, 'main_section' );
@@ -94,7 +94,11 @@ function justcss_options_validate($input) {
  * Callback functions
  */
 function  section_text_fn() {
-	// we do nothing here
+	echo 'To enable a header image, simply put the image <big>logo.jpg</big> into a folder called <big>img</big> in your theme folder.';
+}
+
+function  section_text_blank() {
+	// nothing to see here
 }
 
 function setting_nav_fn() {

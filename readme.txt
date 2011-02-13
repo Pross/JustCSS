@@ -4,7 +4,7 @@ Contributers: Pross
 Tags: translation-ready, microformats, rtl-language-support, two-columns, flexible-width, threaded-comments, theme-options, custom-menu, sticky-post, custom-background, custom-colors, custom-menu, editor-style
 
 == Description ==
-Pure HTML5 theme with custom colours using css3 originally based on Toolbox. Includes support for aside and gallery post-formats.
+Pure HTML5 theme with custom colours using css3. This theme is child-theme ready and supports WordPress 3.1, including support for aside and gallery post-formats.
 
 == Notes ==
 = The following actions/filters are included =
@@ -34,6 +34,9 @@ These filters are to be used in your child theme `functions.php`
 
 
 == Changelog ==
+
+= 1.1 =
+* Added automatic header image ( if image img/logo.jpg is located )
 
 = 1.0.9 =
 * Document functions.
