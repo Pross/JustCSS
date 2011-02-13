@@ -17,9 +17,6 @@ add_filter( 'wp_page_menu_args', 'justcss_page_menu_args' );
 add_action( 'widgets_init', 'justcss_widgets_init' );
 add_action( 'template_redirect', 'justcss_load', 1 );
 
-
-
-
 /**
  * populate the options array and load rest of the actions
  */
@@ -34,28 +31,39 @@ function justcss_load() {
 	add_action('wp_head', 'justcss_do_css');
 	add_action( 'justcss_footer', 'justcss_footer_default' );
 	add_action('admin_bar_menu', 'justcss_theme_options_link', 1000);
-	if ( file_exists( TEMPLATEPATH . '/img/logo.jpg' ) ) {
-		define( 'NO_HEADER_TEXT', true );
-		define( 'HEADER_TEXTCOLOR', '' );
-		define( 'HEADER_IMAGE', get_stylesheet_directory_uri() . '/img/logo.jpg' );
-		add_custom_image_header( 'justcss_logo', null );
+	if ( file_exists( STYLESHEETPATH . '/img/logo.jpg' ) ) {
+		add_custom_image_header( 'justcss_logo_do', null );
+		add_action( 'justcss_logo', 'justcss_get_image' );
+	} else {
+		add_action( 'justcss_logo', 'justcss_default_logo' );
 	}
 }
 
-function justcss_logo() { 
-	echo '<style type="text/css">#site-title { background: url( ' . get_header_image() . '); } #site-title span { position:relative;z-index: -1;}</style>';
+function justcss_logo_do() {
+	$image = getimagesize(  STYLESHEETPATH . '/img/logo.jpg' );
+	define('HEADER_IMAGE_WIDTH', $image[0] );
+	define('HEADER_IMAGE_HEIGHT', $image[1] );
+	define( 'NO_HEADER_TEXT', true );
+	define( 'HEADER_TEXTCOLOR', '' );
+	define( 'HEADER_IMAGE', get_stylesheet_directory_uri() . '/img/logo.jpg' );
 }
 
+function justcss_get_image( $logo ) {
+	echo '<span><a href="' . home_url( '/' ) .'" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '" rel="home"><img width="' . HEADER_IMAGE_WIDTH . '" height="' . HEADER_IMAGE_HEIGHT . '" src="' . get_header_image() . '"></a></span>';
+}
 
+function justcss_default_logo() { 
+	echo '<h1 id="site-title"><span><a href="' . home_url( '/' ) .'" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '" rel="home">' .  get_bloginfo( 'name' ) . '</a></span></h1>';
+}
 
 /**
  * create the custom css for the <head>
  */
 function justcss_do_css() {
 	global $justcss_options;
-	echo ( isset( $justcss_options['justcss_google_fonts'] ) && isset( $justcss_options['main_font'] ) ) ? '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=' . str_replace( ' ', '+', $justcss_options['main_font'] ) . '">' : '';
+	echo ( $justcss_options['justcss_google_fonts'] !== '0' ) ? '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=' . str_replace( ' ', '+', $justcss_options['main_font'] ) . '">' : '';
 	echo "<style type=\"text/css\">";
-	echo ( isset( $justcss_options['justcss_google_fonts'] ) && isset( $justcss_options['main_font'] ) ) ? "body { font-family: '{$justcss_options['main_font']}', serif;}" : 'body { font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans serif; }';
+	echo ( $justcss_options['justcss_google_fonts'] !== '0' ) ? "body { font-family: '{$justcss_options['main_font']}', serif;}" : 'body { font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans serif; }';
 	if ($justcss_options['brackets'] === 'Yes') echo "#site-title a:before{content:'{'} #site-title a:after{content:'}'}";
 	if ($justcss_options['bpo'] === 'Yes') echo ".bypostauthor { background-color: #" . $justcss_options['bypostauthor'] . '!important}';
 	if ($justcss_options['nav_col'] === 'JustCSS') echo "#access li:hover > a, #access ul ul :hover > a, #access ul ul a { background:#333; color:#fff; } #access ul ul a:hover { background:#000; }";
