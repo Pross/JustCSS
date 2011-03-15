@@ -12,16 +12,19 @@
 	 * Print the <title> tag based on what is being viewed.
 	 */
 	global $page, $paged;
-	wp_title( '|', true, 'right' );
+	$title = wp_title( '|', false, 'right' );
+
 	// Add the blog name.
-	bloginfo( 'name' );
+	$title .= get_bloginfo( 'name' );
+
 	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		echo " | $site_description";
+	$title .= ( ( is_home() || is_front_page() ) && get_bloginfo( 'description', 'display' ) ) ? ' | ' . get_bloginfo( 'description', 'display' ) : '';
+
 	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 )
-		echo ' | ' . sprintf( __( 'Page %s', 'justcss' ), max( $paged, $page ) );
+	$title .= ( $paged >= 2 || $page >= 2 ) ? ' | ' . sprintf( __( 'Page %s', 'justcss' ), max( $paged, $page ) ) : '';
+
+	// Print the title.
+	echo apply_filters( 'justcss_title', $title );
 	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
