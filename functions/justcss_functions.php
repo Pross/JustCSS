@@ -139,6 +139,7 @@ function justcss_css() {
 	wp_enqueue_style( 'html5reset', get_template_directory_uri() . '/css/html5reset.css', false, JCSS_VERSION );
 	wp_enqueue_style( 'justcss', get_template_directory_uri() . '/css/justcss.css', false, JCSS_VERSION );
 	if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' );
+	if ( TEMPLATEPATH != STYLESHEETPATH ) wp_enqueue_style( 'childcss', get_stylesheet_directory_uri() . '/style.css', false, JCSS_VERSION );
 }
 
 /**
